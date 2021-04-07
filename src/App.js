@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
+import React, { Component } from 'react'
+import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
+import Menu from './components/Menu/Menu';
+// import PostsList from './components/PostsList/PostsList';
+// import UserList from './components/UserList/UserList';
+import routes from './routes'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+
+    showContentMenus = () => {
+        var result= null;
+        if(routes.length > 0){
+            result = routes.map((routes,index) =>{
+                return (
+                    <Route
+                        key={index}
+                        path={routes.path}
+                        exact={routes.exact}
+                        component={routes.main}
+                    />)
+            })
+        }
+        return  <Switch>
+                    {result}
+                </Switch>
+    }
+
+    render() {
+        return (
+            <Router>
+                <div className="App">
+                <div className="wrapper">
+                <Menu/>
+                <main>
+                <h1>Fix Fast Website Admin</h1>
+                {this.showContentMenus(routes)}
+                </main>
+                </div>
+            </div>
+            </Router>
+    );}
 }
 
 export default App;
