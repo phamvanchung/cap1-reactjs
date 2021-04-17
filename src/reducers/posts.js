@@ -14,8 +14,8 @@ var findIndex = (posts, id) => {
 
 const posts = (state= initialState, action) => {
     let index = -1;
-    let {post} = action;
-    let postId = action.postId;
+    let {post,postId} = action;
+    // let postId = action.postId;
     switch (action.type) {
         case Types.FETCH_POSTS:
             state = action.posts;

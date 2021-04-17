@@ -16,7 +16,13 @@ const menus = [
         name:'Posts',
         to:'/posts-list',
         exact: false,
+    },
+    {
+        name:'Customer',
+        to:'/customer-list',
+        exact: false,
     }
+
 ];
 
 const MenuLink = ({label,to,activeOnlyWhenExact})=>{

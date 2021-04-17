@@ -4,9 +4,9 @@ import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import AllPostPage from './pages/pageAD/pagePost/AllPostPage';
 import AddPostPage from './pages/pageAD/pagePost/AddPostPage';
 import EditPostPage from './pages/pageAD/pagePost/EditPostPage';
-import UserListPage from './pages/UserListPage/UserListPage';
-import UserActionPage from './pages/UserActionPage/UserActionPage';
-
+import AllUserPage from './pages/pageAD/pageUser/AllUserPage';
+import AddUserPage from './pages/pageAD/pageUser/AddUserPage';
+import EditUserPage from './pages/pageAD/pageUser/EditUserPage';
 
 const routes =[
     {
@@ -32,17 +32,17 @@ const routes =[
     {
         path: '/users-list',
         exact: false,
-        main: ()=> <UserListPage/>
+        main: ()=> <AllUserPage/>
     },
     {
-        path: '/users/add',
+        path: '/users/add-user',
         exact: false,
-        main: ({history})=> <UserActionPage history={history}/>
+        main: ({history})=> <AddUserPage history={history}/>
     },
     {
         path: '/users/:userId/edit',
         exact: false,
-        main: ({match,history})=> <UserActionPage match={match} history={history}/>
+        main: ({match,history})=> <EditUserPage match={match} history={history}/>
     },
     {
         path: '',

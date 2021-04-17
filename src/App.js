@@ -37,6 +37,7 @@ class App extends Component {
                 <Menu/>
                 <main>
                 <h1>Fix Fast Website Admin</h1>
+                <a href="###" className="header-icon"><i class="fas fa-sign-out-alt"></i></a>
                 {this.showContentMenus(routes)}
                 </main>
                 </div>

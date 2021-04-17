@@ -9,7 +9,7 @@ export const actFetchPosts = (posts)=>{
 }
 export const actFetchPostsReq  =  () => {
     return  (dispatch) => {
-        return callApi('posts','GET',null)
+        return callApi('api/posts','GET',null)
         .then((res) =>{
             dispatch(actFetchPosts(res.data))
         })
@@ -26,7 +26,7 @@ export const actAddPosts = (post) =>{
 }
 export const actAddPostsReq = (post) =>{
     return (dispatch) =>{
-        return callApi('posts/add-post','POST',post)
+        return callApi('api/posts/add-post','POST',post)
         .then(res =>{
             dispatch(actAddPosts(res.data))
             console.log('res:',res);
@@ -43,7 +43,7 @@ export const actUpdatePosts = (post) =>{
 }
 export const actUpdatePostsReq = (post) =>{
     return (dispatch) =>{
-        return callApi(`posts/update-post/${post.id}`,'PUT',post)
+        return callApi(`api/posts/update-post/${post.id}`,'PUT',post)
         .then(res =>{
             dispatch(actUpdatePosts(res.data))
         })
@@ -59,7 +59,7 @@ export const actDeletePosts = (postId) =>{
 }
 export const actDeletePostsReq = (postId)=>{
     return (dispatch) =>{
-        return callApi(`posts/delete-post/${postId}`,'DELETE',null)
+        return callApi(`api/posts/delete-post/${postId}`,'DELETE',null)
         .then(res =>{
             dispatch(actDeletePosts(postId))
             console.log(postId);
@@ -75,7 +75,7 @@ export const actGetPosts =  (post) => {
 }
 export const actGetPostsReq = (postId)=>{
     return (dispatch) =>{
-        return callApi(`posts/${postId}`,'GET',null)
+        return callApi(`api/posts/${postId}`,'GET',null)
         .then(res =>{
             dispatch(actGetPosts(res.data));
         })
