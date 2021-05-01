@@ -1,47 +1,23 @@
-// import logo from './logo.svg';
-import './App.css';
+// import './App.css';
 import React, { Component } from 'react'
 import { BrowserRouter as Router,Switch,Route } from "react-router-dom";
-import Menu from './components/Menu/Menu';
-// import PostsList from './components/PostsList/PostsList';
-// import UserList from './components/UserList/UserList';
-import routes from './routes'
-
-
+import Admin from './pages/pageAD/Admin';
+import Client from './pages/pageClient/Client';
+import NotFoundPage from './pages/pageClient/NotFoundPage/NotFound';
+import Auth from './pages/pageAuth/Auth';
 
 class App extends Component {
-
-    showContentMenus = () => {
-        var result= null;
-        if(routes.length > 0){
-            result = routes.map((routes,index) =>{
-                return (
-                    <Route
-                        key={index}
-                        path={routes.path}
-                        exact={routes.exact}
-                        component={routes.main}
-                    />)
-            })
-        }
-        return  <Switch>
-                    {result}
-                </Switch>
-    }
-
     render() {
         return (
             <Router>
-                <div className="App">
-                <div className="wrapper">
-                <Menu/>
-                <main>
-                <h1>Fix Fast Website Admin</h1>
-                <a href="###" className="header-icon"><i class="fas fa-sign-out-alt"></i></a>
-                {this.showContentMenus(routes)}
-                </main>
-                </div>
-            </div>
+                 <Switch>
+                    <Route path="/login" component={Auth} />
+                    <Route path="/register" component={Auth} />
+                    <Route path="/admin" component={Admin} />
+                    <Route path="/:slug" component={Client}/>
+                    <Route exact path="/" component={Client}/>
+                    <Route component={NotFoundPage}/>
+                </Switch>
             </Router>
     );}
 }

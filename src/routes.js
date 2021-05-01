@@ -1,6 +1,7 @@
 import React from 'react';
-import HomePage from './pages/HomePage/HomePage';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+
+//import Admin
+import HomePageAd from './pages/pageAD/HomePageAd/HomePageAd';
 import AllPostPage from './pages/pageAD/pagePost/AllPostPage';
 import AddPostPage from './pages/pageAD/pagePost/AddPostPage';
 import EditPostPage from './pages/pageAD/pagePost/EditPostPage';
@@ -8,48 +9,111 @@ import AllUserPage from './pages/pageAD/pageUser/AllUserPage';
 import AddUserPage from './pages/pageAD/pageUser/AddUserPage';
 import EditUserPage from './pages/pageAD/pageUser/EditUserPage';
 
-const routes =[
+//import Client
+import HomePageClt from './pages/pageClient/HomePage/HomePage';
+// import NotFoundPage from './pages/pageClient/NotFoundPage/NotFound';
+import AllShopPage from './pages/pageClient/AllPostPage/AllPostPage';
+
+//import Auth
+import LoginPage from './pages/pageAuth/LoginPage/LoginPage';
+import RegisterPage from './pages/pageAuth/RegisterPage/RegisterPage';
+
+
+
+export const routesAuth=[
     {
-        path: '/',
-        exact: true,
-        main: ()=> <HomePage/>
+        path: '/login',
+        exact: false,
+        main: ()=> <LoginPage/>
     },
     {
-        path: '/posts-list',
+        path: '/register',
+        exact:false,
+        main: ()=> <RegisterPage/>
+    }
+]
+
+
+export const routes =[
+    {
+        path:'/',
+        exact:true,
+        main:  () => <HomePageClt/>
+    },
+    {
+        path:'/service',
+        exact:false,
+        // main: () => <Service/>
+    },
+    {
+        path:'/contact',
+        exact:false,
+        // main: () => <Service/>
+    },
+    {
+        path:'/all-shop',
+        exact:false,
+        main: () => <AllShopPage/>
+    },
+    {
+        path:'/detail-shop/',
+        exact:false,
+        
+    },
+    {
+        // path: '/'
+    },
+
+    // {
+    //     path:'',
+    //     exact:false,
+    //     main: () => <NotFoundPage/>
+    // }
+
+]
+
+
+
+export const routesAd =[
+    {
+        path: '/admin',
+        exact: true,
+        main: ()=> <HomePageAd/>
+    },
+    {
+        path: '/admin/posts-list',
         exact: false,
         main: ()=> <AllPostPage/>
     },
     {
-        path: '/posts/add-post',
+        path: '/admin/add-post',
         exact: false,
         main: ({history})=> <AddPostPage history={history}/>
     },
     {
-        path: '/posts/:postId/edit',
+        path: '/admin/:postId/edit-post',
         exact: false,
         main: ({match,history})=> <EditPostPage match={match} history={history}/>
     },
     {
-        path: '/users-list',
+        path: '/admin/users-list',
         exact: false,
         main: ()=> <AllUserPage/>
     },
     {
-        path: '/users/add-user',
+        path: '/admin/add-user',
         exact: false,
         main: ({history})=> <AddUserPage history={history}/>
     },
     {
-        path: '/users/:userId/edit',
+        path: '/admin/:userId/edit-user',
         exact: false,
         main: ({match,history})=> <EditUserPage match={match} history={history}/>
     },
-    {
-        path: '',
-        exact: false,
-        main: ()=> <NotFoundPage/>
-    },
+    // {
+    //     path: '',
+    //     exact: false,
+    //     main: ()=> <NotFoundPage/>
+    // },
     
 ]
-
-export default routes;

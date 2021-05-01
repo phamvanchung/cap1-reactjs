@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from 'react-redux';
-import PostsList from '../../../components/PostsList/PostsList';
-import PostsItems from '../../../components/PostsItems/PostsItems';
+import PostsList from '../../../components/componentsAd/PostsList/PostsList';
+import PostsItems from '../../../components/componentsAd/PostsItems/PostsItems';
 import {actFetchPostsReq,actDeletePostsReq} from '../../../actions/actPosts';
 
 

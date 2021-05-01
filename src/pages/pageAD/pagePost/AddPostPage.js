@@ -100,7 +100,7 @@ class AddPostPage extends Component {
                         <img id="img_avatar" alt='' src='' className='' />
                     </div> */}
                 </div>
-                <Link to="/posts-list" className="btn btn-primary mr-2">
+                <Link to="/admin/posts-list" className="btn btn-primary mr-2">
                     Trở về
                 </Link>
                 <button type="submit" className="btn btn-primary" >Lưu lại</button>

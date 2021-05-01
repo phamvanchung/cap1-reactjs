@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
-import UserList from '../../../components/UserList/UserList';
-import UserItems from '../../../components/UserItems/UserItems';
+import UserList from '../../../components/componentsAd/UserList/UserList';
+import UserItems from '../../../components/componentsAd/UserItems/UserItems';
 import {actFetchUserReq,actDeleteUserReq} from '../../../actions/actUser';
 
 class AllUserPage extends Component {

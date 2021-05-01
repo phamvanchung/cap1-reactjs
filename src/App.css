@@ -52,7 +52,7 @@ nav {
   min-height: 697px;
 }
 
-nav header {
+nav .header-admin {
   position: relative;
   height: 80px;
   padding: 20px 0 0 15px;
@@ -61,7 +61,7 @@ nav header {
   background: #333333;
 }
 
-nav header span {
+nav .header-admin span {
   position: relative;
   display: inline-block;
   width: 36px;
@@ -71,7 +71,7 @@ nav header span {
   border: 1px solid #fff;
 }
 
-nav header span:before {
+nav .header-admin span:before {
   content: "";
   font: normal 20px fontawesome;
   top: 7px;

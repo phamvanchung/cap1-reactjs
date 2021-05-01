@@ -71,7 +71,7 @@ class EditPostPage extends Component {
     }
 
     render() {
-        const {name,address,description,phone,avatar}=this.state;
+        const {name,address,description,phone}=this.state;
         return (
             <div className="mt-4">
                 <h3>Quản lý bài viết</h3>
@@ -81,6 +81,7 @@ class EditPostPage extends Component {
                     <input type="text" 
                     className="form-control" 
                     name="name" value={name}
+                    defaultValue={name}
                     onChange={this.handleInputOnChange}/>
                 </div>
                 <div className="form-group">
@@ -88,13 +89,15 @@ class EditPostPage extends Component {
                     <input  type="text" 
                      className="form-control" 
                      name="address" value={address} 
+                     defaultValue={address}
                      onChange={this.handleInputOnChange}/>
                 </div>
                 <div className="form-group">
                     <label>Mô tả</label>
                     <textarea className="form-control" 
                     name="description" 
-                    value={description} 
+                    value={description}
+                    defaultValue={description}
                     onChange={this.handleInputOnChange}
                     ></textarea>
                 </div>
@@ -103,6 +106,7 @@ class EditPostPage extends Component {
                     <input type="text" 
                     className="form-control" 
                     name="phone" 
+                    defaultValue={phone}
                     value={phone} 
                     onChange={this.handleInputOnChange}/>
                 </div>
@@ -113,7 +117,7 @@ class EditPostPage extends Component {
                     ref={this.fileInput}
                     onChange={this.handleOnchangeChooseFile}/>
                 </div>
-                <Link to="/posts-list" className="btn btn-primary mr-2">
+                <Link to="/admin/posts-list" className="btn btn-primary mr-2">
                     Trở về
                 </Link>
                 <button type="submit" className="btn btn-primary" >Lưu lại</button>
