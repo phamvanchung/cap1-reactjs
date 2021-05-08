@@ -23,7 +23,7 @@ class LoginPage extends Component {
                     <input id="login-input-user" 
                         className="login__input" type="email" 
                         name='email' 
-                        // placeholder="Vd:NguyenvanB@gmail.com"
+                        placeholder="Vd:NguyenvanB@gmail.com"
                     />
 
                     <label htmlFor="login-input-password" className="login__label">
@@ -33,7 +33,7 @@ class LoginPage extends Component {
                         className="login__input" 
                         type="password" 
                         name="password"
-                        // placeholder="Nhập password"
+                        placeholder="Nhập password"
                         />
                     
                     <label htmlFor="login-sign-up" className="login__label--checkbox">
