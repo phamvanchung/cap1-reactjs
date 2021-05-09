@@ -1,0 +1,64 @@
+.header__navbar-user {
+    /* display: flex; */
+    justify-items: center;
+    position: relative;
+    list-style: none;
+}
+.header__navbar-user-img {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: rgba(0, 0, 0, 0.2);
+}
+.header__navbar-user-name {
+    margin-left: 4px;
+    font-size: 16px !important;
+    color: #fff;
+}
+.header__navbar-user:hover .header__navbar-user-menu {
+    display: block;
+}
+.header__navbar-user-menu {
+    position: absolute;
+    z-index: 1;
+    top: 130%;
+    padding-left: 0;
+    right: 0;
+    width: 142px;
+    border-radius: 2px;
+    box-shadow: 0 0 3px #cccccc;
+    background-color: var(--white-color);
+    display: none;
+}
+.header__navbar-user-menu ::before {
+    content: "";
+    position: absolute;
+    border-width: 20px 28px;
+    border-style: solid;
+    /* transparent la mau trong suot */
+    border-color: transparent transparent var(--white-color) transparent;
+    right: 4px;
+    top: -30px;
+}
+/* làm 1 thanh để khi di chuột vào Bell không bị mất header__notify */
+.header__navbar-user-menu ::after {
+    content: "";
+    position: absolute;
+    height: 20px;
+    min-width: 142px !important;
+    top: -14px;
+    right: 0;
+}
+.header__navbar-user-items {
+    padding: 9px 0 12px 0;
+}
+.header__navbar-user-link {
+    color: #333;
+    padding: 5px 22px 5px 5px !important;
+    // margin-left: 20px !important;
+    margin-top: 4px !important;
+    text-align: center !important;
+}
+.header__navbar-user-link:hover {
+    color: #339999 !important;
+}

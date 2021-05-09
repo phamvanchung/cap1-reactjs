@@ -24,12 +24,12 @@ export const routesAuth=[
     {
         path: '/login',
         exact: false,
-        main: ()=> <LoginPage/>
+        main: ({match,history})=> <LoginPage match={match} history={history}/>
     },
     {
         path: '/register',
         exact:false,
-        main: ()=> <RegisterPage/>
+        main: ({match,history})=> <RegisterPage match={match} history={history}/>
     }
 ]
 

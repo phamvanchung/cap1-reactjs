@@ -4,7 +4,7 @@ class Search extends Component {
     render() {
         return (
             <div className="gird__colum-1">.
-            <form action className="form-wrapper">
+            <form className="form-wrapper">
                 <h2 className="form-header">Search</h2>
                 <div className="form-group1">
                 <label className="form-label">Find a repair site</label>

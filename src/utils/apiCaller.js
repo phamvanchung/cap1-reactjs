@@ -6,7 +6,11 @@ export default function callApi(endpoint, method='GET',body){
     return axios({
         url:`${Config.API_URL}/${endpoint}`,
         method: method,
-        data:body
+        data:body,
+        headers: {
+            'X-Requested-With': 'XMLHttpRequest',
+            Authorization: 'mySecret',
+          },
     }).catch(err=>{
         console.log(err);
     })

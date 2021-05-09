@@ -17,63 +17,63 @@ class Cart extends Component {
                     <div className="details">
                     <h2>Hà Nội</h2>
                     <div className="more">
-                        <p href="#" className="read-more">Your<span>Location</span></p>
+                        <p className="read-more">Your<span>Location</span></p>
                     </div>
                     </div>
                 </Link>
                 {/*image card start*/}
-                <a href className="image">
+                <Link to="/all-shop" className="image">
                     <img src="./assets/img/quảng trị 1.jpg" alt="" />
                     <div className="details">
                     <h2>Quảng Trị</h2>
                     <div className="more">
-                        <p href="#" className="read-more">Your <span>Location</span></p>
+                        <p className="read-more">Your <span>Location</span></p>
                     </div>
                     </div>
-                </a>
+                </Link>
                 {/*image card start*/}
-                <a href className="image">
+                <Link to="/all-shop" className="image">
                     <img src="./assets/img/Đà nẵng.jpg" alt="" />
                     <div className="details">
                     <h2>DANANG</h2>
                     <div className="more">
-                        <p href="#" className="read-more">Your <span>Location</span></p>
+                        <p className="read-more">Your <span>Location</span></p>
                     </div>
                     </div>
-                </a>
+                </Link>
                 </div>
                 {/*image row start*/}
                 <div className="row">
                 {/*image card start*/}
-                <a href className="image">
+                <Link to="/all-shop" className="image">
                     <img src="./assets/img/quang nam 1.jpg" alt="" />
                     <div className="details">
                     <h2>Quảng Nam</h2>
                     <div className="more">
-                        <p href="#" className="read-more">Your <span>Location</span></p>
+                        <p className="read-more">Your <span>Location</span></p>
                     </div>
                     </div>
-                </a>
+                </Link>
                 {/*image card start*/}
-                <a href className="image">
+                <Link to="/all-shop" className="image">
                     <img src="./assets/img/daklak.jpg" alt="" />
                     <div className="details">
                     <h2>Dak Lak</h2>
                     <div className="more">
-                        <p href="#" className="read-more">Your <span>Location</span></p>
+                        <p className="read-more">Your <span>Location</span></p>
                     </div>
                     </div>
-                </a>
+                </Link>
                 {/*image card start*/}
-                <a href className="image">
+                <Link to="/all-shop" className="image">
                     <img src="./assets/img/sài gòn.jpg" alt="" />
                     <div className="details">
                     <h2>Sài Gòn</h2>
                     <div className="more">
-                        <p href="#" className="read-more">Your <span>Location</span></p>
+                        <p className="read-more">Your <span>Location</span></p>
                     </div>
                     </div>
-                </a>
+                </Link>
                 </div>
             </section>
             {/*image card layout end*/}
