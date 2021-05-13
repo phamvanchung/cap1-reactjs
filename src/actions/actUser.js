@@ -33,5 +33,17 @@ export const actDeleteUserReq = (userId) =>{
 }
 
 export const actAddUser =(user)=>{
+    return {
+        type:Types.ADD_USERS,
+        user
+    }
     
+}
+export const actAddUserReq = (user)=>{
+    return(dispatch)=>{
+        return callApi('api/users/add-user','POST',user)
+        .then(res=>{
+            dispatch(actAddUser(res.data));
+        })
+    }
 }

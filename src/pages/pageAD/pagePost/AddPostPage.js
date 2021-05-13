@@ -23,19 +23,19 @@ class AddPostPage extends Component {
     handleInputOnChange = (e) => {
        this.setState({
         frmPost : {
-            ...this.state.frmPost,
+            ...this.state.frmPost,  
             [e.target.name] : e.target.value,
             }
        })
-    //    console.log('this.State:',this.state);
     }
         
-    handleOnchangeChooseFile =async (e)=>{
-        // console.log(e.target.files[0]);
+    handleOnchangeChooseFile = (e)=>{
         this.setState({
-            avatar:this.fileInput.current.files[0].name
+            frmPost : {
+                ...this.state.frmPost,  
+                [e.target.name] : e.target.files[0],
+            }
         })
-        console.log(this.fileInput.current.files[0].name);
     }
 
     onSaveAddPost = (e) => {
@@ -50,7 +50,6 @@ class AddPostPage extends Component {
         post.append('avatar',avatar);
         this.props.AddPosts(post);
         history.goBack();
-        // console.log(post,this.fileInput.current.files[0].name);
     }
    
 
@@ -58,36 +57,36 @@ class AddPostPage extends Component {
         let {name,address,description,phone}=this.state.frmPost;
         return (
             <div className="mt-4">
-                <h3>Quản lý bài viết</h3>
-                <form method="POST"  onSubmit={this.onSaveAddPost} enctype="multipart/form-data" >
+                <h3>Posts management</h3>
+                <form method="POST"  onSubmit={this.onSaveAddPost} encType="multipart/form-data" >
                 <div className="form-group">
-                    <label>Tên cửa hàng</label>
+                    <label>The store</label>
                     <input type="text" 
                     className="form-control" 
-                    name="name" value={name}
+                    name="name" value={name || ''}
                     onChange={this.handleInputOnChange}/>
                 </div>
                 <div className="form-group">
-                    <label>Địa chỉ</label>
+                    <label>Address</label>
                     <input  type="text" 
                      className="form-control" 
-                     name="address" value={address} 
+                     name="address" value={address || ''} 
                      onChange={this.handleInputOnChange}/>
                 </div>
                 <div className="form-group">
-                    <label>Mô tả</label>
+                    <label>Description</label>
                     <textarea className="form-control" 
                     name="description" 
-                    value={description} 
+                    value={description || ''} 
                     onChange={this.handleInputOnChange}
                     ></textarea>
                 </div>
                 <div className="form-group">
-                    <label>Sđt</label>
+                    <label>Phone</label>
                     <input type="text" 
                     className="form-control" 
                     name="phone" 
-                    value={phone} 
+                    value={phone||''} 
                     onChange={this.handleInputOnChange}/>
                 </div>
                 <div className="form-group">
@@ -96,25 +95,16 @@ class AddPostPage extends Component {
                     name="avatar" 
                     ref={this.fileInput}
                     onChange={this.handleOnchangeChooseFile}/>
-                    {/* <div className="img_">
-                        <img id="img_avatar" alt='' src='' className='' />
-                    </div> */}
                 </div>
                 <Link to="/admin/posts-list" className="btn btn-primary mr-2">
-                    Trở về
+                    Cancel
                 </Link>
-                <button type="submit" className="btn btn-primary" >Lưu lại</button>
+                <button type="submit" className="btn btn-primary" >Save</button>
                 </form>
             </div>
         );
     }
 }
-
-// const mapStateToProps =state =>{
-//     return {
-
-//     }
-// }
 
 const mapDispatchToProps = (dispatch, props)=>{
     return{

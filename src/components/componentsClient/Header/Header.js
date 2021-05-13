@@ -21,9 +21,12 @@ class Header extends Component {
             return (
             <div className="menu">
                 <li className="header__navbar-items header__navbar-user">
-                    <img className="header__navbar-user-img" src={userLogin.dataUser.user.avatarUser} alt="image"  />
+                    <img className="header__navbar-user-img" src={userLogin.dataUser.user.avatarUser} alt="avatar"  />
                     <span className=" header__navbar-user-name">Hi, {userLogin.dataUser.user.userName}</span>
                     <ul className="header__navbar-user-menu">
+                        <li className="header__navbar-user-items">
+                            <Link to='/' className="header__navbar-user-link">My posts</Link>
+                        </li>
                         <li className="header__navbar-user-items">
                             <Link to='/' onClick={this.handleLogout} className="header__navbar-user-link">Logout</Link>
                         </li>

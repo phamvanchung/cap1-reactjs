@@ -34,6 +34,22 @@ export const actAddPostsReq = (post) =>{
     }
 }
 
+//delete action
+export const actDeletePosts = (postId) =>{
+    return {
+        type:Types.DELETE_POSTS,
+        postId
+    }
+}
+export const actDeletePostsReq = (postId)=>{
+    return (dispatch) =>{
+        return callApi(`api/posts/delete-post/${postId}`,'DELETE',null)
+        .then(res =>{
+            dispatch(actDeletePosts(postId))
+        })
+    }
+}
+
 
 export const actUpdatePosts = (post) =>{
     return {
@@ -50,22 +66,6 @@ export const actUpdatePostsReq = (post) =>{
     }
 }
 
-//delete action
-export const actDeletePosts = (postId) =>{
-    return {
-        type:Types.DELETE_POSTS,
-        postId
-    }
-}
-export const actDeletePostsReq = (postId)=>{
-    return (dispatch) =>{
-        return callApi(`api/posts/delete-post/${postId}`,'DELETE',null)
-        .then(res =>{
-            dispatch(actDeletePosts(postId))
-            console.log(postId);
-        })
-    }
-}
 
 export const actGetPosts =  (post) => {
     return {

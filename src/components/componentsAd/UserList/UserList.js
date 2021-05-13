@@ -7,8 +7,8 @@ class UserList extends Component {
         return (
             <div className="mt-4">
                 <div>
-                <h3>Người dùng</h3>
-                <Link to='/admin/users/add-user' type="button" className="btn btn-secondary">Thêm người dùng</Link>
+                <h3>Users</h3>
+                <Link to='/admin/add-user' type="button" className="btn btn-secondary">Add User</Link>
                 </div>
                 <table className="table mt-4">
                 <thead>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {actFetchPostsReq} from '../../../../actions/actPosts';
 import { connect } from "react-redux";
+// import {POST_IMG} from "../../../../constants/service";
 
 
 class CartItem extends Component {
@@ -18,7 +19,7 @@ class CartItem extends Component {
                     <div  key={index}>
                         <div className="card-list">
                         <div className="card-item ">
-                            <img src={post.image} alt="" className="card-item--img" />
+                            <img src={post.avatar} alt="avatar" className="card-item--img" />
                         </div>
                         <div className="card-list-wrap">
                             <div className="card-item">

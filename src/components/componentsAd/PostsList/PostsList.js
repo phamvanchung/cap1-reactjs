@@ -8,8 +8,8 @@ class PostsList extends Component {
         return (
             <div className="mt-4">
                 <div>
-                <h3>Bài viết</h3>
-                <Link to="/admin/add-post" type="button" className="btn btn-secondary">Thêm bài viết</Link>
+                <h3>Posts</h3>
+                <Link to="/admin/add-post" type="button" className="btn btn-secondary">Add Post</Link>
                 </div>
 
                 <table className="table mt-4">
@@ -18,7 +18,7 @@ class PostsList extends Component {
                     <th scope="col">ID</th>
                     <th scope="col">The store</th>
                     <th scope="col">Address</th>
-                    <th scope="col">Description</th>
+                    {/* <th scope="col">Description</th> */}
                     <th scope="col" colSpan={2}>Phone</th>
                     <th />
                     </tr>

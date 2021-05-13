@@ -14,7 +14,6 @@ class EditPostPage extends Component {
             phone:'',
             avatar:'',
         }
-        this.fileInput = React.createRef();
     }
 
     componentDidMount () {
@@ -46,7 +45,9 @@ class EditPostPage extends Component {
     }
 
     handleOnchangeChooseFile = (e) => {
-
+        this.setState({
+            [e.target.name] : e.target.files[0]
+        })
     }
 
     onSubmitFormUpdatePost = (e) => {
@@ -114,7 +115,6 @@ class EditPostPage extends Component {
                     <label>Image</label><br />
                     <input type="file" className="form" 
                     name="avatar" 
-                    ref={this.fileInput}
                     onChange={this.handleOnchangeChooseFile}/>
                 </div>
                 <Link to="/admin/posts-list" className="btn btn-primary mr-2">

@@ -10,6 +10,7 @@ export default function callApi(endpoint, method='GET',body){
         headers: {
             'X-Requested-With': 'XMLHttpRequest',
             Authorization: 'mySecret',
+            'content-type': 'multipart/form-data'
           },
     }).catch(err=>{
         console.log(err);

@@ -1,55 +1,119 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-
+import {connect} from 'react-redux';
+import {actAddUserReq} from '../../../actions/actUser';
 class AddUserPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state={
+            formUser:{
+                id:'',
+                userName:'',
+                email:'',
+                password:'',
+                phone:'',
+                avatar:'',
+            }
+        };
+        this.fileInput = React.createRef();
+    }
+    
+    handleOnchange =  (e) => {
+        this.setState({
+            formUser:{
+                ...this.state.formUser,
+                [e.target.name]:[e.target.value]
+            }
+        });
+    }
+
+    handleOnchangeChooseFile = (e) => {
+        this.setState({
+            formUser : {
+                ...this.state.formUser,
+                [e.target.name]:e.target.files[0]
+            }
+        });
+    }
+
+    handleOnSubmit = (e) => {
+        e.preventDefault();
+        const {history}= this.props;
+        const {userName,email,password,phoneUser,avatar} = this.state.formUser;
+        const user = new FormData();
+        user.append('userName', userName);
+        user.append('email', email);
+        user.append('password', password);
+        user.append('phoneUser', phoneUser);
+        user.append('avatar', avatar);
+        this.props.AddUser(user);
+        history.goBack();
+    }
+
     render() {
+        const {userName, password, email,phoneUser}= this.state.formUser;
         return (
             <div className="mt-4">
-            <h3>Quản lý người dùng</h3>
-            <form method="POST"  onSubmit={this.onSaveAddPost} enctype="multipart/form-data" >
+            <h3>Users management</h3>
+            <form method="POST"  onSubmit={this.handleOnSubmit} encType="multipart/form-data" >
             <div className="form-group">
-                <label>Tên người dùng</label>
+                <label>User Name</label>
                 <input type="text" 
                 className="form-control" 
-                name="name" 
+                name="userName" 
+                value={userName ||''}
+                onChange={this.handleOnchange}
                 />
             </div>
             <div className="form-group">
                 <label>Email</label>
                 <input type="email" 
                  className="form-control" 
-                 name="email"  
+                 name="email"  value={email || ''}
+                onChange={this.handleOnchange}
                  />
             </div>
             <div className="form-group">
                 <label>Password</label>
                 <input type="password" 
                 className="form-control" 
-                name="password" 
+                name="password" value={password ||''}
+                onChange={this.handleOnchange}
+
                 />
             </div>
             <div className="form-group">
                 <label>Phone Number</label>
                 <input type="text" 
                 className="form-control" 
-                name="phone" 
+                name="phoneUser" value={phoneUser|| ''}
+                onChange={this.handleOnchange}
                 />
             </div>
             <div className="form-group">
-                <label>Image</label><br />
+                <label>Avatar</label><br />
                 <input type="file" className="form" 
                 name="avatar" 
+                onChange={this.handleOnchangeChooseFile}
                 ref={this.fileInput}
                 />
             </div>
-            <Link to="/users-list" className="btn btn-primary mr-2">
-                Trở về
+            <Link to="/admin/users-list" className="btn btn-primary mr-2">
+                Cancel
             </Link>
-            <button type="submit" className="btn btn-primary" >Lưu lại</button>
+            <button type="submit" className="btn btn-primary" >Save</button>
             </form>
         </div>
         );
     }
 }
 
-export default AddUserPage;
+const mapDispatchToProps = (dispatch, props)=>{
+    return{
+        AddUser:(user)=>{
+            dispatch(actAddUserReq(user))
+        }
+    }
+}
+
+export default connect(null,mapDispatchToProps) (AddUserPage);
