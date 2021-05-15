@@ -16,7 +16,7 @@ class LoginPage extends Component {
             submitted: false,
         }
     }
-    componentDidUpdate(preProps, preState) {
+    componentDidUpdate(preProps) {
         if (preProps.login.isLogin === true) {
           this.props.history.push('/');
         }
@@ -41,7 +41,6 @@ class LoginPage extends Component {
             submitted:true
         })
         this.props.onLogin(this.state);
-        console.log(this.state);
       }
 
     render() {

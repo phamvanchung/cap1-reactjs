@@ -7,10 +7,10 @@ const initialState = {
   dataUser: null,
 };
 const persistConfig = {
-  key: 'login', // key localstorega
-  storage,
-  blacklist: [], // k bi thay doi hoac k dua va localstorage
-};
+    key: 'login', // key localstorega
+    storage,
+    blacklist: [], // k bi thay doi hoac k dua va localstorage
+  };
 const Auth = (state = initialState, action) => {
   switch (action.type) {
     case TypesAuth.USER_LOGIN:

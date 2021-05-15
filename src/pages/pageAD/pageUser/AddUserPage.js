@@ -62,6 +62,7 @@ class AddUserPage extends Component {
                 className="form-control" 
                 name="userName" 
                 value={userName ||''}
+                required
                 onChange={this.handleOnchange}
                 />
             </div>
@@ -69,6 +70,7 @@ class AddUserPage extends Component {
                 <label>Email</label>
                 <input type="email" 
                  className="form-control" 
+                 required
                  name="email"  value={email || ''}
                 onChange={this.handleOnchange}
                  />
@@ -76,6 +78,7 @@ class AddUserPage extends Component {
             <div className="form-group">
                 <label>Password</label>
                 <input type="password" 
+                required
                 className="form-control" 
                 name="password" value={password ||''}
                 onChange={this.handleOnchange}
@@ -96,6 +99,7 @@ class AddUserPage extends Component {
                 name="avatar" 
                 onChange={this.handleOnchangeChooseFile}
                 ref={this.fileInput}
+                required
                 />
             </div>
             <Link to="/admin/users-list" className="btn btn-primary mr-2">

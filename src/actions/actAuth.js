@@ -11,6 +11,7 @@ export const actLoginReq = (dataUser) =>{
         return callApi('api/login', 'POST', dataUser)
         .then((res) => {
             dispatch(actLogin(res.data));
+            
         });
     }
 }
