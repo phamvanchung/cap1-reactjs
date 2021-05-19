@@ -22,7 +22,7 @@ class UserItems extends Component {
                 <td/>
                 <td>
                     <Link to={`/admin/${user._id}/edit-user`} type="button" className="btn btn-warning mr-2 btn-custom ">Update</Link>
-                    <button type="button" className="btn btn-warning btn-custom mt-2 " onClick={()=>this.onDelete(user._id)}>Delete</button>
+                    <button type="button" className="btn btn-warning btn-custom " onClick={()=>this.onDelete(user._id)}>Delete</button>
                 </td>
             </tr>
         );

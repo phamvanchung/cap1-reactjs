@@ -1,64 +1,54 @@
-.header__navbar-user {
-    /* display: flex; */
-    justify-items: center;
-    position: relative;
-    list-style: none;
+.navbar-top-links .dropdown-menu li {
+    display: block;
+    margin: 10px 0 10px 0;
 }
-.header__navbar-user-img {
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    border: rgba(0, 0, 0, 0.2);
+
+.navbar-top-links .dropdown-menu li:last-child {
+    margin-right: 0;
 }
-.header__navbar-user-name {
-    margin-left: 4px;
-    font-size: 16px !important;
-    color: #fff;
-}
-.header__navbar-user:hover .header__navbar-user-menu {
+
+.navbar-top-links .dropdown-menu li a {
+    padding: 10px 20px;
+    min-height: 0;
     display: block;
 }
-.header__navbar-user-menu {
-    position: absolute;
-    z-index: 1;
-    top: 130%;
-    padding-left: 0;
+
+.navbar-top-links .dropdown-menu li a div {
+    white-space: normal;
+}
+
+.navbar-top-links .dropdown-messages,
+.navbar-top-links .dropdown-tasks {
+    width: 310px;
+    min-width: 0;
+}
+
+.navbar-top-links .dropdown-messages {
+    margin-left: 5px;
+}
+
+.navbar-top-links .dropdown-tasks {
+    margin-left: -59px;
+}
+
+.navbar-top-links .dropdown-user {
     right: 0;
-    width: 142px;
-    border-radius: 2px;
-    box-shadow: 0 0 3px #cccccc;
-    background-color: var(--white-color);
-    display: none;
+    left: auto;
 }
-.header__navbar-user-menu ::before {
-    content: "";
-    position: absolute;
-    border-width: 20px 28px;
-    border-style: solid;
-    /* transparent la mau trong suot */
-    border-color: transparent transparent var(--white-color) transparent;
-    right: 4px;
-    top: -30px;
+.dropdown-icon {
+    margin-bottom: 15px;
 }
-/* làm 1 thanh để khi di chuột vào Bell không bị mất header__notify */
-.header__navbar-user-menu ::after {
-    content: "";
-    position: absolute;
-    height: 20px;
-    min-width: 142px !important;
-    top: -14px;
-    right: 0;
+.dropdown-toggle::after {
+    margin-top: 8px;
 }
-.header__navbar-user-items {
-    padding: 9px 0 12px 0;
+.dropdown-menu.show {
+    background-color: #333;
+    top: 16px !important;
 }
-.header__navbar-user-link {
-    color: #333 !important;
-    padding: 5px 22px 5px 5px !important;
-    // margin-left: 20px !important;
-    margin-top: 4px !important;
-    text-align: center !important;
+.dropdown-user-link {
+    margin: 0 !important;
+    border-radius: 2px !important;
 }
-.header__navbar-user-link:hover {
-    color: #339999 !important;
+.border-bt {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.7);
 }

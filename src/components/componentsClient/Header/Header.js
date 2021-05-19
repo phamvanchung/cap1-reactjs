@@ -19,20 +19,23 @@ class Header extends Component {
             )
         }else{
             return (
-            <div className="menu">
-                <li className="header__navbar-items header__navbar-user">
-                    <img className="header__navbar-user-img" src={userLogin.dataUser.user.avatarUser} alt="avatar"  />
-                    <span className=" header__navbar-user-name">Hi, {userLogin.dataUser.user.userName}</span>
-                    <ul className="header__navbar-user-menu">
-                        <li className="header__navbar-user-items">
-                            <Link to='/' className="header__navbar-user-link">My posts</Link>
+                <ul className="nav navbar-right navbar-top-links">
+                    <li className="dropdown">
+                    <a className="dropdown-toggle" data-toggle="dropdown" href="###">
+                        <i className="fa fa-user fa-fw dropdown-icon" /> {userLogin.dataUser.user.userName} <b className="caret" />
+                    </a>
+                    <ul className="dropdown-menu dropdown-user">
+                        <li><a className="dropdown-user-link" href="###"><i className="fa fa-user fa-fw dropdown-icon" /> User Profile</a>
                         </li>
-                        <li className="header__navbar-user-items">
-                            <Link to='/' onClick={this.handleLogout} className="header__navbar-user-link">Logout</Link>
+                        <li><a className="dropdown-user-link border-bt" href="###"><i className="fa fa-gear fa-fw dropdown-icon" /> Settings</a>
+                        </li>
+                        <li className="divider" />
+                        <li><Link to='/' onClick={this.handleLogout} className="dropdown-user-link"><i className="fa fa-sign-out fa-fw dropdown-icon" /> Logout</Link>
                         </li>
                     </ul>
-                </li>
-            </div>)
+                    </li>
+                </ul>
+            )
         }
     }
 

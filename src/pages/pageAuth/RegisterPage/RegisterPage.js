@@ -5,6 +5,9 @@ import {actRegisterReq} from '../../../actions/actAuth';
 
 import './Register.scss';
 
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 
 class RegisterPage extends Component {
     constructor(props) {
@@ -36,23 +39,23 @@ class RegisterPage extends Component {
         e.preventDefault();
         this.setState({ submitted: true });
         const { history } = this.props;
-        const {userName, password, email,phoneUser} =this.state;
+        const {userName, password, email,phoneUser,avatar} =this.state;
         const data = {
             userName: userName,
             email: email,
             password: password,
             phoneUser: phoneUser,
+            avatar: avatar
         }
-        // this.props.onRegisterUser(data);
-        // console.log(data);
         const myPromiseRegisterUser = new Promise((myResolve, myReject) => {
             this.props.onRegisterUser(data);
-            console.log('data',data);
+            // console.log('data',data);
             myResolve('a');
             myReject('b');
         });
         myPromiseRegisterUser.then(() => {
             history.push('/login');
+            toast.info("Register Success",{autoClose:5000});
         });
     }
 
@@ -127,6 +130,20 @@ class RegisterPage extends Component {
                 {submitted && !phoneUser &&
                     <div className="help-block">Phone is required</div>
                 }
+                </div>
+                <div className="form-group">
+                    <label className="login__label">
+                        Role
+                    </label>
+                    <select
+                    className="form-control"
+                    name="role"
+                    >
+                    <option>Choose default permissions</option>
+                    <option value={0}>User</option>
+                    <option value={1}>Shop</option>
+                    <option value={2}>Admin</option>
+                    </select>
                 </div>
                     <label htmlFor="login-input-avatar" className="login__label">
                         Avatar

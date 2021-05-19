@@ -56,19 +56,7 @@
         transition: 0.3s;
         transition-property: color, background;
     }
-    
-    header .menu a {
-        color: #fff;
-        font-size: 16px;
-        font-weight: 500;
-        text-decoration: none;
-        margin: 0 30px;
-        padding: 0 10px;
-        border-radius: 20px;
-        transition: 0.3s;
-        transition-property: color, background;
-    }
-    
+  
     header .menu a:hover {
         color: #000;
         background: #fff;

@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {actLoginReq} from '../../../actions/actAuth';
-
 import './login.scss';
+
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+toast.configure();
 
 class LoginPage extends Component {
 
@@ -40,6 +43,11 @@ class LoginPage extends Component {
         this.setState({
             submitted:true
         })
+        if(this.state.submitted === true) {
+            toast.success("Login Success",{autoClose:5000});
+        }else{
+            toast.error("Login Fail",{autoClose:5000});
+        }
         this.props.onLogin(this.state);
       }
 
@@ -52,7 +60,7 @@ class LoginPage extends Component {
         return (
             <div className="login-page">
                  <div className="login-container">
-                    <form onSubmit={this.handleSubmit} className="form-login">
+                    <form onSubmit={this.handleSubmit}  className="form-login">
                     <ul className="login-nav">
                         <li className="login-nav__item active">
                         <Link to="/login">Login</Link>
@@ -68,7 +76,7 @@ class LoginPage extends Component {
                         <input id="login-input-user" 
                             className="login__input" type="email" 
                             name='email' 
-                            placeholder="Vd:NguyenvanB@gmail.com"
+                            // placeholder="Vd:NguyenvanB@gmail.com"
                             value={email}
                             onChange={this.handleOnChange}
                         />
@@ -85,7 +93,7 @@ class LoginPage extends Component {
                             className="login__input" 
                             type="password" 
                             name="password"
-                            placeholder="Nhập password"
+                            // placeholder="Nhập password"
                             value={password}
                             onChange={this.handleOnChange}
                         />
@@ -98,7 +106,10 @@ class LoginPage extends Component {
                         {/* <input id="login-sign-up" type="checkbox" className="login__input--checkbox" />
                         Keep me Login */}
                     </label>
-                    <button className="login__submit" >Login</button>
+                    <div>
+                        <button className="login__submit" >Login</button>
+                        
+                    </div>
                     <Link to='/' className="login__cancel" >Cancel</Link>
                     </form>
                     <a href="###" className="login__forgot">Forgot Password?</a>

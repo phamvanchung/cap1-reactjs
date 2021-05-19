@@ -5,13 +5,12 @@ export const actLogin = (dataUser) => ({
   type: TypesLogin.USER_LOGIN,
   dataUser
 });
-
 export const actLoginReq = (dataUser) =>{
     return (dispatch) =>{
         return callApi('api/login', 'POST', dataUser)
         .then((res) => {
             dispatch(actLogin(res.data));
-            
+            // toast.success("MY SUCCESS");
         });
     }
 }
