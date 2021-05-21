@@ -24,13 +24,9 @@ class CartItem extends Component {
                         <div className="card-list-wrap">
                             <div className="card-item">
                             <div className="card-item-wrap">
-                                <Link to="" className="card-item--label">{post.name} </Link>
-                                {/* <span className="card-item-star">
-                                <i className="fas fa-star" />
-                                <i className="far fa-thumbs-up card-item-like" />
-                                </span>   */}
+                                <Link to={`/detail-shop/${post.postId}`} className="card-item--label">{post.name} </Link>
                             </div>
-                            <a href="##" className="card-item--address">{post.address} </a>
+                            <Link to={`/detail-shop/${post.postId}`} className="card-item--address">{post.address} </Link>
                             <p className='hotline'>Hotline: <span>{post.phone}</span> </p>
                             <p className="card-item--description">{post.description}</p>
                             </div>
@@ -42,7 +38,7 @@ class CartItem extends Component {
                                 </div>
                                 <div className="card-item-evaluate-pointer">{post.point} </div>
                             </div>
-                            <button className="btn btn-info btn-card">Xem chi tiết</button>
+                            <Link to={`/detail-shop/${post.postId}`} className="btn btn-info btn-card">Xem chi tiết</Link>
                             </div>
                         </div>
                         </div>

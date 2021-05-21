@@ -14,6 +14,7 @@ import HomePageClt from './pages/pageClient/HomePage/HomePage';
 // import NotFoundPage from './pages/pageClient/NotFoundPage/NotFound';
 import AllShopPage from './pages/pageClient/AllPostPage/AllPostPage';
 import MePostPage from './pages/pageClient/MePostPage/mePostPage';
+import DetailPage from './pages/pageClient/DetailCartPage/DetailPage';
 
 //import Auth
 import LoginPage from './pages/pageAuth/LoginPage/LoginPage';
@@ -57,9 +58,9 @@ export const routes =[
         main: () => <AllShopPage/>
     },
     {
-        path:'/detail-shop/',
+        path:'/detail-shop/:postId',
         exact:false,
-        
+        main: ({match,history}) => <DetailPage match={match} history={history}/>
     },
     {
         path: '/me/post',

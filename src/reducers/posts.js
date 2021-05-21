@@ -20,6 +20,9 @@ const posts = (state= initialState, action) => {
         case Types.FETCH_POSTS:
             state = action.posts;
             return [...state];
+        case Types.GET_POSTS_BY_ID:
+            state = findIndex(state,postId);
+            return [...state];
         case Types.DELETE_POSTS:
             index = findIndex(state,postId);
             state.splice(index,1)

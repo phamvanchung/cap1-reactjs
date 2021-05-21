@@ -13,11 +13,11 @@ class Cart extends Component {
                 <div className="row">
                 {/*image card start*/}
                 <Link to="/all-shop" className="image">
-                    <img src="./assets/img/had nội 4.jpg" alt="" />
+                    <img src="https://vcdn-vnexpress.vnecdn.net/2019/02/20/IMG-8444-8451-1550678975.jpg" alt="" />
                     <div className="details">
-                    <h2>Hà Nội</h2>
+                    <h2>Đà Nẵng</h2>
                     <div className="more">
-                        <p className="read-more">Your<span>Location</span></p>
+                        <p className="read-more">Your <span>Location</span></p>
                     </div>
                     </div>
                 </Link>
@@ -33,11 +33,11 @@ class Cart extends Component {
                 </Link>
                 {/*image card start*/}
                 <Link to="/all-shop" className="image">
-                    <img src="./assets/img/Đà nẵng.jpg" alt="" />
+                    <img src="./assets/img/had nội 4.jpg" alt="" />
                     <div className="details">
-                    <h2>DANANG</h2>
+                    <h2>Hà Nội</h2>
                     <div className="more">
-                        <p className="read-more">Your <span>Location</span></p>
+                        <p className="read-more">Your<span>Location</span></p>
                     </div>
                     </div>
                 </Link>

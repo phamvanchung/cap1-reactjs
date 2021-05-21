@@ -17,6 +17,19 @@ export const actFetchPostsReq  =  () => {
     }
 }
 
+//act get post id
+export const actGetPostByIdReq = (postId) => (dispatch) => callApi(`api/posts/get-postId/${postId}`, 'GET', null)
+  .then((res) => {
+    dispatch(actGetPostById(res.data));
+  })
+  .catch((err) => {
+    throw err;
+  });
+export const actGetPostById = (post) => ({
+    type: Types.GET_POSTS_BY_ID,
+    post,
+    });
+
 
 export const actAddPosts = (post) =>{
     return{

@@ -8,7 +8,9 @@ class CartList extends Component {
             <div className="grid">
             {/* <div className="grid__full-width"> */}
             <div className="grid__row">
+            <div className="gird__colum-1">
                 <Search/>
+            </div>
             <div className="gird__colum-10 card-wrapper">
                 <CartItem/>
             </div>
