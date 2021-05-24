@@ -13,9 +13,10 @@ import EditUserPage from './pages/pageAD/pageUser/EditUserPage';
 import HomePageClt from './pages/pageClient/HomePage/HomePage';
 // import NotFoundPage from './pages/pageClient/NotFoundPage/NotFound';
 import AllShopPage from './pages/pageClient/AllPostPage/AllPostPage';
-import MePostPage from './pages/pageClient/MePostPage/mePostPage';
+import MeProfilePage from './pages/pageClient/MeProfilePage/meProfilePage';
 import DetailPage from './pages/pageClient/DetailCartPage/DetailPage';
-
+import About from './components/componentsClient/About/About';
+import BookingPage from './pages/pageClient/Booking/bookingPage';
 //import Auth
 import LoginPage from './pages/pageAuth/LoginPage/LoginPage';
 import RegisterPage from './pages/pageAuth/RegisterPage/RegisterPage';
@@ -43,9 +44,9 @@ export const routes =[
         main:  () => <HomePageClt/>
     },
     {
-        path:'/service',
+        path:'/about',
         exact:false,
-        // main: () => <Service/>
+        main: () => <About/>
     },
     {
         path:'/contact',
@@ -54,7 +55,7 @@ export const routes =[
     },
     {
         path:'/all-shop',
-        exact:false,
+        exact:true,
         main: () => <AllShopPage/>
     },
     {
@@ -63,11 +64,15 @@ export const routes =[
         main: ({match,history}) => <DetailPage match={match} history={history}/>
     },
     {
-        path: '/me/post',
+        path: '/me/profile',
         exact:false,
-        main: () => <MePostPage/>
+        main: () => <MeProfilePage/>
     },
-
+    {
+        path: '/my-order',
+        exact:true,
+        main: () => <BookingPage/>
+    },
     // {
     //     path:'',
     //     exact:false,

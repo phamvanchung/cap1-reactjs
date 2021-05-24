@@ -55,7 +55,7 @@ class RegisterPage extends Component {
         });
         myPromiseRegisterUser.then(() => {
             history.push('/login');
-            toast.info("Register Success",{autoClose:5000});
+            toast.info("Register Success",{autoClose:3000});
         });
     }
 
@@ -131,7 +131,7 @@ class RegisterPage extends Component {
                     <div className="help-block">Phone is required</div>
                 }
                 </div>
-                <div className="form-group">
+                {/* <div className="form-group">
                     <label className="login__label">
                         Role
                     </label>
@@ -144,7 +144,7 @@ class RegisterPage extends Component {
                     <option value={1}>Shop</option>
                     <option value={2}>Admin</option>
                     </select>
-                </div>
+                </div> */}
                     <label htmlFor="login-input-avatar" className="login__label">
                         Avatar
                     </label>

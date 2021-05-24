@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {Link,withRouter } from "react-router-dom";
 import { connect } from 'react-redux';
 import './Header.scss';
+import { HashLink as Links } from 'react-router-hash-link';
+
 class Header extends Component {
 
     handleLogout = () => {
@@ -48,8 +50,9 @@ class Header extends Component {
                     <i className="fas fa-times close-btn" />
                     </div>
                     <Link to="/">Home</Link>
-                    <Link to="/services">Services</Link>
-                    <Link to="/contact">Contact</Link>
+                    <Links smooth to="#services">Services</Links>
+                    <Links smooth to="#contact">Contact</Links>
+                    <Link to="/about">About</Link>
                     {this.showUserIsLogin(this.props.userLogin)}
                 </div>
                 <div className="btn">

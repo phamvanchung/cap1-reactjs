@@ -182,7 +182,7 @@
 .evaluate_list .evaluate_column .bar .line {
     position: relative;
     width: 100%;
-    height: 15px;
+    height: 12px;
     background: #d3d6c4;
     border-radius: 2px;
 }
@@ -278,10 +278,14 @@
 
 .user_review {
     margin: 16px;
+    line-height: 1.6;
 }
 
 .cmt {
     float: left;
+}
+.content_cmt {
+    padding: 10px;
 }
 
 .text_cmt {
@@ -308,4 +312,7 @@
 
 .btn-sub:hover {
     background-color: #003580;
+}
+.button {
+    line-height: 2.5;
 }

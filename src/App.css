@@ -184,10 +184,10 @@ main h1 {
 }
 .header-icon{
     float:right;
-    margin: -90px 30px 0px 0;
+    margin: -78px 30px 0px 0;
     font-size: 20px;
-    color: #333;
 }
+
 /* 
 .header{
     background-image: url(../public/image/logo.png);

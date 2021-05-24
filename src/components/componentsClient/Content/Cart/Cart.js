@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-
 class Cart extends Component {
     render() {
         return (
             <div>
             {/*image card layout start*/}
-            <section className="contact" id="contact">
+            <section className="contact" id="services">
                 <div className="title reveal">
                 <h2 className="section-title">Service</h2>
                 </div>

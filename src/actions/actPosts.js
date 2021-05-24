@@ -13,23 +13,23 @@ export const actFetchPostsReq  =  () => {
         .then((res) =>{
             dispatch(actFetchPosts(res.data))
         })
-
     }
 }
 
 //act get post id
-export const actGetPostByIdReq = (postId) => (dispatch) => callApi(`api/posts/get-postId/${postId}`, 'GET', null)
-  .then((res) => {
-    dispatch(actGetPostById(res.data));
-  })
-  .catch((err) => {
-    throw err;
-  });
 export const actGetPostById = (post) => ({
     type: Types.GET_POSTS_BY_ID,
     post,
-    });
-
+});
+export const actGetPostByIdReq = (postId) => {
+   return (dispatch) => { 
+       return callApi(`api/posts/get-postId/${postId}`, 'GET', null)
+    .then((res) => {
+        dispatch(actGetPostById(res.data));
+        console.log('res',res);
+        })
+    }
+}
 
 export const actAddPosts = (post) =>{
     return{

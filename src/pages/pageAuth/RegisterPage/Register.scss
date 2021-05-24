@@ -15,11 +15,11 @@
     position: relative;
     z-index: 0;
     margin: 4rem auto 0;
-    padding: 5rem 4rem 0 4rem;
+    // padding: 5rem 4rem 0 4rem;
     width: 100%;
-    max-width: 525px;
-    min-height: 680px;
-    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/283591/login-background.jpg);
+    max-width: 430px;
+    min-height: 575px;
+    // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/283591/login-background.jpg);
     box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85);
 }
 
@@ -32,12 +32,16 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-image: radial-gradient(
-        ellipse at left bottom,
-        rgba(22, 24, 47, 1) 0%,
-        rgba(38, 20, 72, 0.9) 59%,
-        rgba(17, 27, 75, 0.9) 100%
-    );
+    // background-image: radial-gradient(
+    //     ellipse at left bottom,
+    //     rgba(22, 24, 47, 1) 0%,
+    //     rgba(38, 20, 72, 0.9) 59%,
+    //     rgba(17, 27, 75, 0.9) 100%
+    // );
+    background: linear-gradient(rgba(35, 43, 85, 0.75), rgba(35, 43, 85, 0.95)),
+        url(https://images.pexels.com/photos/716398/pexels-photo-716398.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)
+            no-repeat center center;
+    border-radius: 5px;
     box-shadow: 0 -20px 150px -20px rgba(0, 0, 0, 0.5);
 }
 
@@ -159,6 +163,7 @@
 .login__submit {
     color: #ffffff;
     font-size: 1rem;
+    font-weight: 600;
     font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;

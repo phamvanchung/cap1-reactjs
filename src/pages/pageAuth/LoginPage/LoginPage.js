@@ -44,9 +44,9 @@ class LoginPage extends Component {
             submitted:true
         })
         if(this.state.submitted === true) {
-            toast.success("Login Success",{autoClose:5000});
+            toast.success("Login Success",{autoClose:3000});
         }else{
-            toast.error("Login Fail",{autoClose:5000});
+            toast.error("Login Fail",{autoClose:3000});
         }
         this.props.onLogin(this.state);
       }

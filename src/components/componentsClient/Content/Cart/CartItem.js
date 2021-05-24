@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {actFetchPostsReq} from '../../../../actions/actPosts';
 import { connect } from "react-redux";
 // import {POST_IMG} from "../../../../constants/service";
-
+import './CartItem.scss';
 
 class CartItem extends Component {
 
@@ -19,14 +19,16 @@ class CartItem extends Component {
                     <div  key={index}>
                         <div className="card-list">
                         <div className="card-item ">
+                         <Link to={`/detail-shop/${post._id}`}>
                             <img src={post.avatar} alt="avatar" className="card-item--img" />
+                        </Link>
                         </div>
                         <div className="card-list-wrap">
                             <div className="card-item">
                             <div className="card-item-wrap">
-                                <Link to={`/detail-shop/${post.postId}`} className="card-item--label">{post.name} </Link>
+                                <Link to={`/detail-shop/${post._id}`} className="card-item--label">{post.name} </Link>
                             </div>
-                            <Link to={`/detail-shop/${post.postId}`} className="card-item--address">{post.address} </Link>
+                            <Link to={`/detail-shop/${post._id}`} className="card-item--address">{post.address} </Link>
                             <p className='hotline'>Hotline: <span>{post.phone}</span> </p>
                             <p className="card-item--description">{post.description}</p>
                             </div>
@@ -34,11 +36,11 @@ class CartItem extends Component {
                             <div className="card-item-evaluate">
                                 <div className="card-item-evaluate-wrap">
                                 <div className="card-item-evaluate--label">Rất tốt</div>
-                                <div className="card-item-evaluate--text">{post.evaluate} đánh giá</div>
+                                <div className="card-item-evaluate--text">100 đánh giá</div>
                                 </div>
-                                <div className="card-item-evaluate-pointer">{post.point} </div>
+                                <div className="card-item-evaluate-pointer">8.0 </div>
                             </div>
-                            <Link to={`/detail-shop/${post.postId}`} className="btn btn-info btn-card">Xem chi tiết</Link>
+                            <Link to={`/detail-shop/${post._id}`} className="btn btn-info btn-card">Xem chi tiết</Link>
                             </div>
                         </div>
                         </div>

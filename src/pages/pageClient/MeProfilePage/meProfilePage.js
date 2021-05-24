@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './mePostPage.scss';
+import './meProfilePage.scss';
 
 class mePostPage extends Component {
     render() {
