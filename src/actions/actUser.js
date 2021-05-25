@@ -47,3 +47,31 @@ export const actAddUserReq = (user)=>{
         })
     }
 }
+
+export const actGetUserById = (user) => ({
+    type: Types.GET_USERS_BY_ID,
+    user,
+});
+export const actGetUserByIdReq = (userId) => {
+   return (dispatch) => { 
+       return callApi(`api/users/get-userId/${userId}`, 'GET', null)
+    .then((res) => {
+        dispatch(actGetUserById(res.data));
+        })
+    }
+}
+
+export const actUpdateUser = (user) =>{
+    return {
+        type:Types.UPDATE_USERS,
+        user
+    }
+}
+export const actUpdateUserReq = (user) =>{
+    return (dispatch) =>{
+        return callApi(`api/users/update-user/${user._id}`,'PUT',user)
+        .then(res =>{
+            dispatch(actUpdateUser(res.data))
+        })
+    }
+}

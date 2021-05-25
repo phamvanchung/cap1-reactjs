@@ -17,6 +17,8 @@ import MeProfilePage from './pages/pageClient/MeProfilePage/meProfilePage';
 import DetailPage from './pages/pageClient/DetailCartPage/DetailPage';
 import About from './components/componentsClient/About/About';
 import BookingPage from './pages/pageClient/Booking/bookingPage';
+
+
 //import Auth
 import LoginPage from './pages/pageAuth/LoginPage/LoginPage';
 import RegisterPage from './pages/pageAuth/RegisterPage/RegisterPage';
@@ -49,11 +51,6 @@ export const routes =[
         main: () => <About/>
     },
     {
-        path:'/contact',
-        exact:false,
-        // main: () => <Service/>
-    },
-    {
         path:'/all-shop',
         exact:true,
         main: () => <AllShopPage/>
@@ -74,7 +71,7 @@ export const routes =[
         main: () => <BookingPage/>
     },
     // {
-    //     path:'',
+    //     path:'*',
     //     exact:false,
     //     main: () => <NotFoundPage/>
     // }

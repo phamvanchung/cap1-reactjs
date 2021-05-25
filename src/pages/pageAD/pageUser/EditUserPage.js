@@ -1,8 +1,80 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
-
+import {connect} from 'react-redux';
+import {actGetUserByIdReq,actUpdateUserReq} from '../../../actions/actUser';
 class EditUserPage extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            userName:'',
+            email:'',
+            password:'',
+            phoneUser:'',
+            avatar:'',
+        }
+    }
+
+    componentDidMount(){
+        let {match}= this.props;
+        if(match){
+            let {userId}= match.params;
+            this.props.onEditingUser(userId);
+        }
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(nextProps && nextProps.itemEditing){
+            let {itemEditing} = nextProps;
+            this.setState({
+                userName:itemEditing.userName,
+                email:itemEditing.email,
+                password:itemEditing.password,
+                phoneUser:itemEditing.phoneUser,
+                avatar:itemEditing.avatar,
+            })
+            } 
+        }
+
+    handleOnchange=  (e) => {
+        this.setState({
+            [e.target.name] : e.target.value
+        })
+    }
+    handleOnchangeChooseFile = (e) => {
+        this.setState({
+            [e.target.name] : e.target.files[0]
+        })
+    }
+
+    handleOnSubmit =  (e) => {
+        e.preventDefault();
+        let { match } = this.props;
+        let {history}= this.props;
+        let {userId} = match.params;
+        let {userName,email,password,phoneUser} = this.state;
+        let user ={
+            _id:userId,
+            userName:userName,
+            email:email,
+            password:password,
+            phoneUser:phoneUser
+        }
+        const myPromisePost = new Promise((myResolve, myReject) => {
+            this.props.onUpdateUser(user);
+            myResolve(
+              'a',
+            );
+            myReject(
+              'a',
+            );
+          });
+          myPromisePost.then(() => {
+            history.goBack();
+          });
+    }
+
     render() {
+        const {userName, password, email,phoneUser}=this.state;
         return (
             <div className="mt-4">
             <h3>Users management</h3>
@@ -12,7 +84,7 @@ class EditUserPage extends Component {
                 <input type="text" 
                 className="form-control" 
                 name="userName" 
-                // value={userName ||''}
+                value={userName ||''}
                 onChange={this.handleOnchange}
                 />
             </div>
@@ -20,7 +92,7 @@ class EditUserPage extends Component {
                 <label>Email</label>
                 <input type="email" 
                  className="form-control" 
-                //  name="email"  value={email || ''}
+                 name="email"  value={email || ''}
                 onChange={this.handleOnchange}
                  />
             </div>
@@ -28,7 +100,7 @@ class EditUserPage extends Component {
                 <label>Password</label>
                 <input type="password" 
                 className="form-control" 
-                // name="password" value={password ||''}
+                name="password" value={password ||''}
                 onChange={this.handleOnchange}
 
                 />
@@ -37,7 +109,7 @@ class EditUserPage extends Component {
                 <label>Phone Number</label>
                 <input type="text" 
                 className="form-control" 
-                // name="phoneUser" value={phoneUser|| ''}
+                name="phoneUser" value={phoneUser|| ''}
                 onChange={this.handleOnchange}
                 />
             </div>
@@ -58,5 +130,21 @@ class EditUserPage extends Component {
         );
     }
 }
+const mapStateToProps = state =>{
+    return{
+        itemEditing:state.itemEditing,
+    }
+}
 
-export default EditUserPage;
+const mapDispatchToProps =(dispatch, props)=>{
+    return{
+        onUpdateUser: (post)=>{
+            dispatch(actUpdateUserReq(post))
+        },
+        onEditingUser:(postId)=>{
+            dispatch(actGetUserByIdReq(postId))
+        }
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps) (EditUserPage);

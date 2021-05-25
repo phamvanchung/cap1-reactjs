@@ -10,7 +10,7 @@ class CartDetail extends Component {
     componentDidMount() {
         const { match } = this.props;
         if (match) {
-            const {postId} = match.params;
+            const postId = match.params._id;
             this.props.getPostById(postId);
         }
       }

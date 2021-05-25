@@ -26,7 +26,6 @@ export const actGetPostByIdReq = (postId) => {
        return callApi(`api/posts/get-postId/${postId}`, 'GET', null)
     .then((res) => {
         dispatch(actGetPostById(res.data));
-        console.log('res',res);
         })
     }
 }
@@ -42,7 +41,6 @@ export const actAddPostsReq = (post) =>{
         return callApi('api/posts/add-post','POST',post)
         .then(res =>{
             dispatch(actAddPosts(res.data))
-            console.log('res:',res);
         })
     }
 }
@@ -72,7 +70,7 @@ export const actUpdatePosts = (post) =>{
 }
 export const actUpdatePostsReq = (post) =>{
     return (dispatch) =>{
-        return callApi(`api/posts/update-post/${post.id}`,'PUT',post)
+        return callApi(`api/posts/update-post/${post._id}`,'PUT',post)
         .then(res =>{
             dispatch(actUpdatePosts(res.data))
         })
@@ -80,17 +78,17 @@ export const actUpdatePostsReq = (post) =>{
 }
 
 
-export const actGetPosts =  (post) => {
-    return {
-        type:Types.EDIT_POSTS,
-        post
-    }
-}
-export const actGetPostsReq = (postId)=>{
-    return (dispatch) =>{
-        return callApi(`api/posts/${postId}`,'GET',null)
-        .then(res =>{
-            dispatch(actGetPosts(res.data));
-        })
-    }
-}
+// export const actGetPosts =  (post) => {
+//     return {
+//         type:Types.EDIT_POSTS,
+//         post
+//     }
+// }
+// export const actGetPostsReq = (postId)=>{
+//     return (dispatch) =>{
+//         return callApi(`api/posts/${postId}`,'GET',null)
+//         .then(res =>{
+//             dispatch(actGetPosts(res.data));
+//         })
+//     }
+// }

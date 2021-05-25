@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import {Link } from "react-router-dom";
 import {connect} from 'react-redux';
-import {actUpdatePostsReq,actGetPostsReq} from '../../../actions/actPosts';
+import {actUpdatePostsReq,actGetPostByIdReq} from '../../../actions/actPosts';
 
 class EditPostPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            id:'',
             name:'',
             address:'',
             description:'',
@@ -19,8 +18,8 @@ class EditPostPage extends Component {
     componentDidMount () {
         let { match } = this.props;
         if(match){
-            let postId = match.params._id;
-            this.props.onEditingUser(postId);
+            let {postId} = match.params;
+            this.props.onEditingPost(postId);
         }
     }
 
@@ -28,14 +27,13 @@ class EditPostPage extends Component {
     if(nextProps && nextProps.itemEditing){
         let {itemEditing} = nextProps;
         this.setState({
-            id: itemEditing._id,
             name:itemEditing.name,
             address:itemEditing.address,
             description:itemEditing.description,
             phone:itemEditing.phone,
             avatar:itemEditing.avatar,
         })
-    }        
+        } 
     }
 
     handleInputOnChange= (e)=>{
@@ -53,62 +51,64 @@ class EditPostPage extends Component {
     onSubmitFormUpdatePost = (e) => {
         e.preventDefault();
         let { match } = this.props;
-        // let {name,address,description,phone,avatar}= this.state.frmPost;
         let {history}= this.props;
-        var postId = match.params.postId;
-        var post = {
+        let {postId} = match.params;
+        let {name,address,description,phone}= this.state;
+        let post = {
             _id:postId,
-            ...this.state
+            name:name,
+            address:address,
+            description:description,
+            phone:phone,
         }
-        // let post = new FormData();
-        // post.append('name',name);
-        // post.append('address',address);
-        // post.append('description',description);
-        // post.append('phone',phone);
-        // post.append('avatar',avatar);
-        this.props.onUpdatePost(post);
-        history.goBack();
-
+        const myPromisePost = new Promise((myResolve, myReject) => {
+            this.props.onUpdatePost(post);
+            myResolve(
+              'aaaaaaaaaaa',
+            );
+            myReject(
+              'bbbbbbbbb',
+            );
+          });
+          myPromisePost.then(() => {
+            history.push('/admin/posts-list');
+          });
     }
 
     render() {
-        const {name,address,description,phone}=this.state;
+        let {name,address,description,phone}=this.state;
         return (
             <div className="mt-4">
-                <h3>Quản lý bài viết</h3>
-                <form method="POST"  onSubmit={this.onSaveAddPost} enctype="multipart/form-data" >
+                <h3>Posts management</h3>
+                <form onSubmit={this.onSubmitFormUpdatePost} encType="multipart/form-data" >
                 <div className="form-group">
-                    <label>Tên cửa hàng</label>
+                    <label>The store</label>
                     <input type="text" 
                     className="form-control" 
-                    name="name" value={name}
-                    defaultValue={name}
+                    name="name" value={name||''}
                     onChange={this.handleInputOnChange}/>
                 </div>
                 <div className="form-group">
-                    <label>Địa chỉ</label>
+                    <label>Address</label>
                     <input  type="text" 
                      className="form-control" 
-                     name="address" value={address} 
-                     defaultValue={address}
+                     name="address" value={address||''} 
                      onChange={this.handleInputOnChange}/>
                 </div>
                 <div className="form-group">
-                    <label>Mô tả</label>
+                    <label>Description</label>
                     <textarea className="form-control" 
                     name="description" 
-                    value={description}
-                    defaultValue={description}
+                    value={description ||''}
                     onChange={this.handleInputOnChange}
                     ></textarea>
                 </div>
                 <div className="form-group">
-                    <label>Sđt</label>
+                    <label>Phone</label>
                     <input type="text" 
                     className="form-control" 
                     name="phone" 
-                    defaultValue={phone}
-                    value={phone} 
+                    value={phone||''} 
                     onChange={this.handleInputOnChange}/>
                 </div>
                 <div className="form-group">
@@ -118,9 +118,9 @@ class EditPostPage extends Component {
                     onChange={this.handleOnchangeChooseFile}/>
                 </div>
                 <Link to="/admin/posts-list" className="btn btn-primary mr-2">
-                    Trở về
+                     Cancel
                 </Link>
-                <button type="submit" className="btn btn-primary" >Lưu lại</button>
+                <button type="submit" className="btn btn-primary" >Save</button>
                 </form>
             </div>
         );
@@ -133,14 +133,13 @@ const mapStateToProps = state =>{
     }
 }
 
-
 const mapDispatchToProps =(dispatch, props)=>{
     return{
         onUpdatePost: (post)=>{
             dispatch(actUpdatePostsReq(post))
         },
-        onEditingUser:(postId)=>{
-            dispatch(actGetPostsReq(postId))
+        onEditingPost:(postId)=>{
+            dispatch(actGetPostByIdReq(postId))
         }
     }
 }
