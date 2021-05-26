@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Search from '../Search/Search';
 import './Detail.scss';
-import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {actGetPostByIdReq} from '../../../../actions/actPosts';
 
@@ -10,10 +9,19 @@ class CartDetail extends Component {
     componentDidMount() {
         const { match } = this.props;
         if (match) {
-            const postId = match.params._id;
+            const {postId} = match.params;
             this.props.getPostById(postId);
         }
       }
+
+    addToCart =  (posts) => {
+    if(this.props.login.isLogin === true) {
+        
+        this.props.history.push('/my-order');
+    }else{
+        this.props.history.push('/login')
+        }
+    }
     
     showDetailPost = (posts) => {
         if(posts){
@@ -24,7 +32,7 @@ class CartDetail extends Component {
                     <h1 className="infor_shopName">{posts.name}</h1>
                 </div>
                 <div className="form_dn">
-                    <Link to="/my-order" className="btn btn-info button">Đặt Ngay</Link>
+                    <button onClick={()=>this.addToCart(this.props.detailPost)} className="btn btn-info button">Đặt Ngay</button>
                 </div>
                 </div>
                 <div className="infor_image-wrapper">
@@ -35,7 +43,7 @@ class CartDetail extends Component {
                     <p className="context">
                         {posts.description}
                     </p>
-                    <p className="top_pick_heading">Hotline:{posts.phone}</p>
+                    <p className="top_pick_heading">Hotline: {posts.phone}</p>
                 </div>
             </div>
             )
@@ -44,7 +52,6 @@ class CartDetail extends Component {
    
                     
     render() {
-        const {posts} =this.props;
         return (
             <div className="grid">
             <div className="grid__full-width">
@@ -54,7 +61,7 @@ class CartDetail extends Component {
                 </div>
                 <div className="gird_colum_2 ">
 
-                    {this.showDetailPost(posts)}
+                    {this.showDetailPost(this.props.detailPost)}
 
                     <div className="infor_context">
                         <p className="vehicle_label">Loại phương tiện</p>
@@ -173,7 +180,7 @@ class CartDetail extends Component {
 }
 
 const mapStateToProps=(state)=>({
-    posts: state.posts,
+    detailPost: state.itemEditing,
     login: state.auth
 })
 const mapDispatchToProps = (dispatch) =>({

@@ -1,41 +1,41 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {actGetUserByIdReq,actUpdateUserReq} from '../../../actions/actUser';
-class EditUserPage extends Component {
+import {actGetShopByIdReq,actUpdateShopReq} from '../../../actions/actShop';
+
+
+class EditShopPage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            userName:'',
+            nameShop:'',
             email:'',
             password:'',
-            phoneUser:'',
+            phoneShop:'',
             avatar:'',
         }
     }
-
     componentDidMount(){
         let {match}= this.props;
         if(match){
-            let {userId}= match.params;
-            this.props.onEditingUser(userId);
+            let {shopId}= match.params;
+            this.props.onEditingShop(shopId);
         }
     }
-
     componentWillReceiveProps(nextProps){
         if(nextProps && nextProps.itemEditing){
             let {itemEditing} = nextProps;
             this.setState({
-                userName:itemEditing.userName,
+                nameShop:itemEditing.nameShop,
                 email:itemEditing.email,
                 password:itemEditing.password,
-                phoneUser:itemEditing.phoneUser,
+                phoneShop:itemEditing.phoneShop,
                 avatar:itemEditing.avatar,
             })
             } 
         }
 
-    handleOnchange=  (e) => {
+    handleOnchange =  (e) => {
         this.setState({
             [e.target.name] : e.target.value
         })
@@ -46,21 +46,21 @@ class EditUserPage extends Component {
         })
     }
 
-    handleOnSubmit =  (e) => {
+    handleOnSubmit = (e) => {
         e.preventDefault();
         let { match } = this.props;
         let {history}= this.props;
-        let {userId} = match.params;
-        let {userName,email,password,phoneUser} = this.state;
-        let user ={
-            _id:userId,
-            userName:userName,
+        let {shopId} = match.params;
+        let {nameShop,email,password,phoneShop} = this.state;
+        let shop ={
+            _id:shopId,
+            nameShop:nameShop,
             email:email,
             password:password,
-            phoneUser:phoneUser
+            phoneShop:phoneShop
         }
-        const myPromiseUser = new Promise((myResolve, myReject) => {
-            this.props.onUpdateUser(user);
+        const myPromiseShop = new Promise((myResolve, myReject) => {
+            this.props.onUpdateShop(shop);
             myResolve(
               'a',
             );
@@ -68,23 +68,23 @@ class EditUserPage extends Component {
               'a',
             );
           });
-          myPromiseUser.then(() => {
+          myPromiseShop.then(() => {
             history.goBack();
           });
     }
-
     render() {
-        const {userName, password, email,phoneUser}=this.state;
+        const {nameShop, email, password, phoneShop}= this.state;
         return (
             <div className="mt-4">
-            <h3>Users management</h3>
+            <h3>Shops management</h3>
             <form method="POST"  onSubmit={this.handleOnSubmit} encType="multipart/form-data" >
             <div className="form-group">
-                <label>User Name</label>
+                <label>Name Shop</label>
                 <input type="text" 
                 className="form-control" 
-                name="userName" 
-                value={userName ||''}
+                name="nameShop" 
+                value={nameShop ||''}
+                required
                 onChange={this.handleOnchange}
                 />
             </div>
@@ -92,6 +92,7 @@ class EditUserPage extends Component {
                 <label>Email</label>
                 <input type="email" 
                  className="form-control" 
+                 required
                  name="email"  value={email || ''}
                 onChange={this.handleOnchange}
                  />
@@ -99,17 +100,17 @@ class EditUserPage extends Component {
             <div className="form-group">
                 <label>Password</label>
                 <input type="password" 
+                required
                 className="form-control" 
                 name="password" value={password ||''}
                 onChange={this.handleOnchange}
-
                 />
             </div>
             <div className="form-group">
                 <label>Phone Number</label>
                 <input type="text" 
                 className="form-control" 
-                name="phoneUser" value={phoneUser|| ''}
+                name="phoneShop" value={phoneShop|| ''}
                 onChange={this.handleOnchange}
                 />
             </div>
@@ -118,10 +119,10 @@ class EditUserPage extends Component {
                 <input type="file" className="form" 
                 name="avatar" 
                 onChange={this.handleOnchangeChooseFile}
-                ref={this.fileInput}
+                // required
                 />
             </div>
-            <Link to="/admin/users-list" className="btn btn-primary mr-2">
+            <Link to="/admin/shops-list" className="btn btn-primary mr-2">
                 Cancel
             </Link>
             <button type="submit" className="btn btn-primary" >Save</button>
@@ -138,13 +139,12 @@ const mapStateToProps = state =>{
 
 const mapDispatchToProps =(dispatch, props)=>{
     return{
-        onUpdateUser: (user)=>{
-            dispatch(actUpdateUserReq(user))
+        onUpdateShop: (shop)=>{
+            dispatch(actUpdateShopReq(shop))
         },
-        onEditingUser:(userId)=>{
-            dispatch(actGetUserByIdReq(userId))
+        onEditingShop:(shopId)=>{
+            dispatch(actGetShopByIdReq(shopId))
         }
     }
 }
-
-export default connect(mapStateToProps,mapDispatchToProps) (EditUserPage);
+export default connect (mapStateToProps,mapDispatchToProps) (EditShopPage);

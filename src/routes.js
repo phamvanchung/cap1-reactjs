@@ -8,6 +8,9 @@ import EditPostPage from './pages/pageAD/pagePost/EditPostPage';
 import AllUserPage from './pages/pageAD/pageUser/AllUserPage';
 import AddUserPage from './pages/pageAD/pageUser/AddUserPage';
 import EditUserPage from './pages/pageAD/pageUser/EditUserPage';
+import AllShopsPage from './pages/pageAD/pageShop/AllShopPage';
+import AddShopPage from './pages/pageAD/pageShop/AddShopPage';
+import EditShopPage from './pages/pageAD/pageShop/EditShopPage';
 
 //import Client
 import HomePageClt from './pages/pageClient/HomePage/HomePage';
@@ -17,7 +20,6 @@ import MeProfilePage from './pages/pageClient/MeProfilePage/meProfilePage';
 import DetailPage from './pages/pageClient/DetailCartPage/DetailPage';
 import About from './components/componentsClient/About/About';
 import BookingPage from './pages/pageClient/Booking/bookingPage';
-
 
 //import Auth
 import LoginPage from './pages/pageAuth/LoginPage/LoginPage';
@@ -116,6 +118,22 @@ export const routesAd =[
         exact: false,
         main: ({match,history})=> <EditUserPage match={match} history={history}/>
     },
+    {
+        path: '/admin/shops-list',
+        exact: false,
+        main:()=> <AllShopsPage/>
+    },
+    {
+        path: '/admin/add-shop',
+        exact: false,
+        main:({history})=> <AddShopPage history={history}/>
+    },
+    {
+        path: '/admin/:shopId/edit-shop',
+        exact: false,
+        main:({match,history})=> <EditShopPage match={match} history={history}/>
+    }
+
     // {
     //     path: '',
     //     exact: false,

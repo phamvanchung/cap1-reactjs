@@ -7,7 +7,6 @@ class PostsItems extends Component {
 
     onDelete = (postId) => {
         if(confirm('Bạn có chắc chắn muốn xóa hay không ?')){//eslint-disable-line
-            // console.log(id);
             this.props.onDelete(postId)
         }
     }

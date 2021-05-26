@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-// import PostsItems from '../PostsItems/PostsItems'
-import {Link} from 'react-router-dom'
-
+import {Link} from 'react-router-dom';
 
 class PostsList extends Component {
     render() {

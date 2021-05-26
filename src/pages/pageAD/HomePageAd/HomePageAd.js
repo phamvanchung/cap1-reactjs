@@ -15,7 +15,7 @@ export default class HomePageAd extends Component {
                     <p>Post</p>
                 </div>
                 <div className="float-right">
-                    <i class="fas fa-clipboard"></i>
+                    <i className="fas fa-clipboard"></i>
                 </div>
                 </div>
                 {/*Widget End*/}

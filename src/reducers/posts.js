@@ -15,14 +15,10 @@ var findIndex = (posts, id) => {
 const posts = (state= initialState, action) => {
     let index = -1;
     let {post,postId} = action;
-    // let postId = action.postId;
     switch (action.type) {
         case Types.FETCH_POSTS:
             state = action.posts;
             return [...state];
-        // case Types.GET_POSTS_BY_ID:
-        //     state = action.post;
-        //     return [...state]
         case Types.DELETE_POSTS:
             index = findIndex(state,postId);
             state.splice(index,1)

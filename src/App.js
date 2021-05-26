@@ -16,7 +16,7 @@ class App extends Component {
                     <Route path="/admin" component={Admin} />
                     <Route path="/:slug" component={Client}/>
                     <Route exact path="/" component={Client}/>
-                    <Route component={NotFoundPage}/>
+                    <Route path="*" component={NotFoundPage}/>
                 </Switch>
             </Router>
     );}
