@@ -30,6 +30,8 @@ const posts = (state= initialState, action) => {
             index = findIndex(state,post.postId)
             state[index] =post;
             return [...state]
+        case Types.GET_POSTS_BY_ID:
+            return action.post;
         default: return[...state]
     }
 }

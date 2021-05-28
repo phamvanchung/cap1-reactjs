@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {actFetchPostsReq} from '../../../../actions/actPosts';
 import { connect } from "react-redux";
 // import {POST_IMG} from "../../../../constants/service";
-import './CartItem.scss';
+import './CartItem.css';
 
 class CartItem extends Component {
 

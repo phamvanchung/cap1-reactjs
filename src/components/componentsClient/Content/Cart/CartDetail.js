@@ -1,56 +1,49 @@
 import React, { Component } from 'react';
 import Search from '../Search/Search';
-import './Detail.scss';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {actGetPostByIdReq} from '../../../../actions/actPosts';
 
+import './Detail.css';
 class CartDetail extends Component {
 
     componentDidMount() {
-        const { match } = this.props;
-        if (match) {
-            const {postId} = match.params;
+        window.scrollTo(0, 0);
+        let { match } = this.props;
+        console.log('match:',match);
+        if(match){
+            let {postId} = match.params;
             this.props.getPostById(postId);
-        }
-      }
-
-    addToCart =  (posts) => {
-    if(this.props.login.isLogin === true) {
-        
-        this.props.history.push('/my-order');
-    }else{
-        this.props.history.push('/login')
         }
     }
     
-    showDetailPost = (posts) => {
-        if(posts){
+
+    showDetailPost = (post) => {
+        if(post){
             return(
-            <div>
-                <div className="information_shop">
-                <div className="info_name_icon">
-                    <h1 className="infor_shopName">{posts.name}</h1>
+                <div>
+                    <div className="information_shop">
+                    <div className="info_name_icon">
+                        <h1 className="infor_shopName">{post.name}</h1>
+                    </div>
+                    <div className="form_dn">
+                        <Link to="/my-order"  className="btn btn-info button">Đặt Ngay</Link>
+                    </div>
+                    </div>
+                    <div className="infor_image-wrapper">
+                        <img className="infor_image_1" src={post.avatar} alt="img" />
+                    </div>
+                    <div className="infor_content">
+                        <h2 className="top_pick_heading">Mô tả cửa hàng</h2>
+                        <p className="context">
+                            {post.description}
+                        </p>
+                        <p className="top_pick_heading">Hotline: {post.phone}</p>
+                    </div>
                 </div>
-                <div className="form_dn">
-                    <button onClick={()=>this.addToCart(this.props.detailPost)} className="btn btn-info button">Đặt Ngay</button>
-                </div>
-                </div>
-                <div className="infor_image-wrapper">
-                    <img className="infor_image_1" src={posts.avatar} alt="img" />
-                </div>
-                <div className="infor_content">
-                    <h2 className="top_pick_heading">Mô tả cửa hàng</h2>
-                    <p className="context">
-                        {posts.description}
-                    </p>
-                    <p className="top_pick_heading">Hotline: {posts.phone}</p>
-                </div>
-            </div>
             )
         }
     }
-   
-                    
     render() {
         return (
             <div className="grid">
@@ -61,7 +54,7 @@ class CartDetail extends Component {
                 </div>
                 <div className="gird_colum_2 ">
 
-                    {this.showDetailPost(this.props.detailPost)}
+                    {this.showDetailPost(this.props.posts)}
 
                     <div className="infor_context">
                         <p className="vehicle_label">Loại phương tiện</p>
@@ -179,10 +172,11 @@ class CartDetail extends Component {
     }
 }
 
-const mapStateToProps=(state)=>({
-    detailPost: state.itemEditing,
-    login: state.auth
-})
+const mapStateToProps=(state)=>{
+    return{
+    posts: state.posts,
+    // login: state.auth
+}}
 const mapDispatchToProps = (dispatch) =>({
     getPostById: (postId)=>{
         dispatch(actGetPostByIdReq(postId))

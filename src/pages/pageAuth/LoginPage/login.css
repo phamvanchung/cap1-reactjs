@@ -1,25 +1,13 @@
-// body {
-//     font-family: "Montserrat", sans-serif;
-//     font-size: 16px;
-//     line-height: 1.25;
-//     letter-spacing: 1px;
-// }
-
-* {
-    box-sizing: border-box;
-    transition: 0.25s all ease;
-}
-
 .login-container {
     display: block;
     position: relative;
     z-index: 0;
     margin: 4rem auto 0;
-    // padding: 5rem 4rem 0 4rem;
+    padding: 3rem 2rem 0 3rem;
     width: 100%;
     max-width: 430px;
     min-height: 575px;
-    // background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/283591/login-background.jpg);
+    /* background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/283591/login-background.jpg); */
     box-shadow: 0 50px 70px -20px rgba(0, 0, 0, 0.85);
 }
 
@@ -32,12 +20,12 @@
     right: 0;
     bottom: 0;
     left: 0;
-    // background-image: radial-gradient(
+    /* // background-image: radial-gradient(
     //     ellipse at left bottom,
     //     rgba(22, 24, 47, 1) 0%,
     //     rgba(38, 20, 72, 0.9) 59%,
     //     rgba(17, 27, 75, 0.9) 100%
-    // );
+    // ); */
     background: linear-gradient(rgba(35, 43, 85, 0.75), rgba(35, 43, 85, 0.95)),
         url(https://images.pexels.com/photos/716398/pexels-photo-716398.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500)
             no-repeat center center;
@@ -116,7 +104,7 @@
     color: rgba(255, 255, 255, 0.5);
     text-transform: uppercase;
     font-size: 0.75rem;
-    margin-bottom: 1rem;
+    margin-bottom: 10px !important;
 }
 
 .login__label--checkbox {
@@ -132,7 +120,7 @@
 
 .login__input {
     color: white;
-    font-size: 1.15rem;
+    font-size: 14px !important;
     width: 100%;
     padding: 0.5rem 1rem;
     border: 2px solid transparent;
@@ -160,10 +148,11 @@
     margin: 0;
 }
 
-.login__submit {
+.login__submit,
+.login__cancel {
     color: #ffffff;
-    font-size: 1rem;
     font-weight: 600;
+    font-size: 1rem;
     font-family: "Montserrat", sans-serif;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -175,6 +164,7 @@
     background-color: rgba(17, 97, 237, 0.75);
     border: none;
     cursor: pointer;
+    text-align: center;
 }
 
 .login__submit:hover {
@@ -195,10 +185,14 @@
 .login__forgot:hover {
     color: rgb(17, 97, 237);
 }
-.login_avatar {
-    margin-left: 10px;
-    color: #fff;
+.login__cancel:hover {
+    color: #fff !important;
+    text-decoration: none !important;
+    background-color: rgba(17, 97, 237, 0.95);
 }
-// .form-control {
-//     border-radius: 20px;
-// }
+.help-block {
+    padding: 5px 0 0 15px;
+    color: #0000bb;
+    font-size: 13px;
+    margin-bottom: 10px;
+}

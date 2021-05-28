@@ -1,8 +1,36 @@
 import React, { Component } from 'react';
-import './booking.scss'
+import {Link} from 'react-router-dom';
+import './booking.css';
 
 class bookingPage extends Component {
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+    constructor(props) {
+        super(props)
+        this.state={
+            firstName:'',
+            lastName:'',
+            email:'',
+            ConfirmEmail:'',
+            phone:'',
+        }
+    }
+    
+    handleOnChange = (e) => {
+        const { name, value} =e.target;
+        this.setState({
+            [name]:value
+        })
+    }
+    
+    handleOnClick = (e)=>{
+        
+    }
+    
     render() {
+        const {firstName, lastName, email,confirmEmail, phone}=this.state;
+
         return (
             <div>
                 <div className="grid">
@@ -12,7 +40,7 @@ class bookingPage extends Component {
                     <p className="table-discount-lable">Đăng nhập để nhận giá Genius</p>
                     <div className="table-discount-wrapper">
                         <img className="table-discount-img" src="https://cf.bstatic.com/static/img/genius/genius_trial/ge_closed_gift_refresh/46a8d74e6aafd0fd350d21aa13af5b617cc84d48.svg" alt="img" />
-                        <p className="table-discount-content">Khách Genius có thể tiết kiệm được ít nhất 10% khi đặt lịch. Hãy đăng nhập để xem bạn có đạt đủ điều kiện không <a className="table-discount-link" href="##"> Đăng nhập</a> </p>
+                        <p className="table-discount-content">Khách Genius có thể tiết kiệm được ít nhất 10% khi đặt lịch. Hãy đăng nhập để xem bạn có đạt đủ điều kiện không <Link className="table-discount-link" to="/login"> Đăng nhập</Link> </p>
                     </div>
                     <div className="table-discount-footer">
                         <span className="table-discount-footer-lable">Chương trình khách hàng thân thiết của FFW.com</span>
@@ -45,7 +73,7 @@ class bookingPage extends Component {
                     </div>
                     </div>
                     <div className="table-login">
-                    <span className="table-login-content"><a className="table-login-link" href="/login">Đăng nhập</a> để đặt lịch với thông tin đã lưu của bạn hoặc <a href="/register" className="table-login-link">đăng ký</a> để quản lý lịch đặt của bạn mọi lúc mọi nơi!</span>
+                    <span className="table-login-content"><Link className="table-login-link" to="/login">Đăng nhập</Link> để đặt lịch với thông tin đã lưu của bạn hoặc <Link to="/register" className="table-login-link">đăng ký</Link> để quản lý lịch đặt của bạn mọi lúc mọi nơi!</span>
                     </div>
                     <span className="form-lable">Nhập thông tin chi tiết của bạn</span>
                     <div className="form-book-wrapper">
@@ -55,25 +83,29 @@ class bookingPage extends Component {
                         <div className="form-table-wrapper">
                         <div className="form-table-two">
                             <div className="form-table-name">Họ</div>
-                            <input type="text" className="form-table-input" />
+                            <input type="text" className="form-table-input" name={firstName} onChange={this.handleOnChange}/>
                         </div>
                         <div className="form-table-two">
                             <div className="form-table-name">Tên</div>
-                            <input type="text" className="form-table-input" />
+                            <input type="text" className="form-table-input" name={lastName} onChange={this.handleOnChange}/>
                         </div>
                         </div>
                         <div className="form-table-wrapper-2">
                         <span className="form-table-name">Địa chỉ email</span>
-                        <input type="email" className="form-table-input" />
+                        <input type="email" className="form-table-input w5" name={email} onChange={this.handleOnChange}/>
                         <span className="form-table-email">Email xác nhận đặt lịch sẽ được gửi đến địa chỉ này</span>
                         </div>
                         <div className="form-table-wrapper-2">
                         <div className="form-table-name">Xác nhận địa chỉ email</div>
-                        <input type="email" className="form-table-input" />
+                        <input type="email" className="form-table-input w5" name={confirmEmail} onChange={this.handleOnChange}/>
+                        </div>
+                        <div className="form-table-wrapper-2">
+                        <div className="form-table-name">Điện thoại (ưu tiên số ĐTDĐ)</div>
+                        <input type="number" className="form-table-input w5" name={phone} onChange={this.handleOnChange} />
                         </div>
                     </div>
                     </div>
-                    <button type="text" className="btn btn-info btn_custom">Đặt lịch</button>
+                    <button onClick={this.handleOnClick} type="text" className="btn btn-info btn_custom">Đặt lịch</button>
                 </div>
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import {Link,withRouter} from "react-router-dom";
+import {Link} from "react-router-dom";
 import { connect } from 'react-redux';
-import './Header.scss';
+import './Header.css';
 import { HashLink as Links } from 'react-router-hash-link';
 
 class Header extends Component {
@@ -66,4 +66,4 @@ const mapStateToProps = (state)=>({
     userLogin:state.auth
 })
 
-export default connect(mapStateToProps,null) (withRouter(Header));
+export default connect(mapStateToProps,null) ((Header));

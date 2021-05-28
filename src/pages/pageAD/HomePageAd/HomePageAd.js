@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './HomePage.scss';
+import './HomePage.css';
 
 export default class HomePageAd extends Component {
     render() {

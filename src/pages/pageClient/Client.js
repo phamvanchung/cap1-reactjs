@@ -5,7 +5,9 @@ import Header from "../../components/componentsClient/Header/Header";
 import Footer from "../../components/componentsClient/Footer/Footer";
 
 class Client extends Component {
-
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
     showContentMenus = () => {
         var result= null;
         if(routes.length > 0){

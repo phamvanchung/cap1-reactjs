@@ -66,7 +66,7 @@
 .gg_map {
     margin-top: 10px;
 }
-
+/* 
 // .form-header {
 //     padding: 20px 0 4px 15px;
 //     font-size: 1.8rem;
@@ -91,7 +91,7 @@
 //     border-radius: 3px;
 //     border-color: none;
 //     border-style: none;
-// }
+// } */
 .form-select {
     font: size 1.6rem;
     height: 36px;
@@ -133,7 +133,7 @@
     font-weight: 600;
 }
 .vehicle_list {
-    // padding: 20px;
+    /* // padding: 20px; */
     display: flex;
 }
 

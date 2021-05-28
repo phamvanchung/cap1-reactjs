@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import './about.scss';
+import './about.css';
 
 class About extends Component {
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
     render() {
         return (
             <div>
@@ -56,7 +59,7 @@ class About extends Component {
                     <h2>Vo Nhu Hung</h2>
                     </div>
                     <div className="slogan_member">
-                    <p>"No pressure, no diamonds"</p>
+                    <p>"I don't always have time to study but when i do i still don't"</p>
                     </div>
                 </div>
                 </div>
@@ -68,7 +71,7 @@ class About extends Component {
                         <h2>Pham Quoc Hung</h2>
                     </div>
                     <div className="slogan_member">
-                        <p>"Friend is all"</p>
+                        <p>"Nothing is impossible"</p>
                     </div>
                     </div>
                     <div className="avatar_member">

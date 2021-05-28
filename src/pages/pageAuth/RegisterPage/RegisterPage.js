@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {actRegisterReq} from '../../../actions/actAuth';
 
-import './Register.scss';
+import './Register.css';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,6 +18,7 @@ class RegisterPage extends Component {
             password: '',
             phoneUser: '',
             avatar:'',
+            permissions: '',
             submitted: false,
         }
     }
@@ -31,32 +32,22 @@ class RegisterPage extends Component {
         this.setState({
             [e.target.name]:e.target.files[0]
         });
-        console.log(e.target.files[0]);
-        
     }
 
     handleSubmit = (e) =>{
         e.preventDefault();
         this.setState({ submitted: true });
         const { history } = this.props;
-        const {userName, password, email,phoneUser,avatar} =this.state;
-        const data = {
-            userName: userName,
-            email: email,
-            password: password,
-            phoneUser: phoneUser,
-            avatar: avatar
-        }
-        const myPromiseRegisterUser = new Promise((myResolve, myReject) => {
-            this.props.onRegisterUser(data);
-            // console.log('data',data);
-            myResolve('a');
-            myReject('b');
-        });
-        myPromiseRegisterUser.then(() => {
-            history.push('/login');
-            toast.info("Register Success",{autoClose:3000});
-        });
+        const {userName, password, email,phoneUser,permissions,avatar} =this.state;
+        const data=new FormData();
+        data.append('userName',userName);
+        data.append('email', email);
+        data.append('password', password);
+        data.append('phoneUser', phoneUser);
+        data.append('permission', permissions);
+        data.append('avatar', avatar);
+        this.props.onRegisterUser(data);
+        history.push('/login');
     }
 
     render() {
@@ -131,23 +122,20 @@ class RegisterPage extends Component {
                     <div className="help-block">Phone is required</div>
                 }
                 </div>
-                {/* <div className="form-group">
-                    <label className="login__label">
-                        Role
-                    </label>
+                <div className="form-group">
+                    <label className="login__label">Role</label>
                     <select
                     className="form-control"
-                    name="role"
+                    name="permissions"
+                    onChange={this.handleOnChange}
                     >
-                    <option>Choose default permissions</option>
-                    <option value={0}>User</option>
-                    <option value={1}>Shop</option>
-                    <option value={2}>Admin</option>
+                    <option>Permissions</option>
+                    <option value="customer">Customer</option>
+                    <option value="shop">Shop</option>
+                    <option value="admin">Admin</option>
                     </select>
-                </div> */}
-                    <label htmlFor="login-input-avatar" className="login__label">
-                        Avatar
-                    </label>
+                </div>
+                    <label htmlFor="login-input-avatar" className="login__label">Avatar</label>
                     <input
                         className="login_avatar" 
                         type="file" name="avatar"

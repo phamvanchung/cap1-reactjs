@@ -1,14 +1,3 @@
-// .grid {
-//     width: 1200px;
-//     max-width: 100%;
-//     margin: 0 auto;
-// }
-// .grid__row {
-//     display: flex;
-//     flex-wrap: unset;
-//     margin-left: -5px;
-//     margin-right: -5px;
-// }
 .grid_colum_1 {
     padding-left: 16px;
     padding-right: 5px;
@@ -22,7 +11,7 @@
     line-height: 1.6;
 }
 .table-discount {
-    height: 270px;
+    height: auto;
     width: 100%;
     border: 1px solid #e7e7e7;
 }
@@ -56,7 +45,7 @@
     margin: 0 10px;
 }
 .table-booking-include {
-    height: 120px;
+    height: auto;
     width: 100%;
     margin: 15px 0;
     border: 1px solid #e7e7e7;
@@ -71,7 +60,7 @@
     margin: 5px 0;
 }
 .table-notes {
-    height: 320px;
+    height: auto;
     width: 100%;
     border: 1px solid #e7e7e7;
 }
@@ -79,7 +68,7 @@
     margin: 10px;
 }
 .form-book-wrapper {
-    height: 400px;
+    height: auto;
     width: 100%;
     background-color: #ebf3ff;
     padding: 15px;
@@ -104,7 +93,7 @@
     display: flex;
 }
 .form-table-wrapper-2 {
-    margin: 0 10px;
+    margin: 15px 10px;
 }
 .form-table-two {
     margin: 15px 10px;
@@ -123,6 +112,9 @@
     padding: 5px;
     border-radius: 3px;
     font-size: 13px;
+}
+.w5{
+    width:55%;
 }
 .cart-wrapper {
     display: flex;
@@ -158,13 +150,13 @@
     height: 28px;
     width: 120px;
     border: 1px solid #949494;
-    // padding: 5px 0 10px 0;
+    /* // padding: 5px 0 10px 0; */
     text-align: center;
     margin: 0 2px;
     border-radius: 2px;
 }
 .table-login {
-    height: 50px;
+    height: auto;
     border: 1px solid #e7e7e7;
     width: 100%;
     display: flex;

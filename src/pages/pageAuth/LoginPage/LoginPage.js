@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {actLoginReq} from '../../../actions/actAuth';
-import './login.scss';
+import './login.css';
 
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -43,11 +43,6 @@ class LoginPage extends Component {
         this.setState({
             submitted:true
         })
-        if(this.state.submitted === true) {
-            toast.success("Login Success",{autoClose:3000});
-        }else{
-            toast.error("Login Fail",{autoClose:3000});
-        }
         this.props.onLogin(this.state);
       }
 

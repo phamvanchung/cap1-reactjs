@@ -17,7 +17,7 @@ import HomePageClt from './pages/pageClient/HomePage/HomePage';
 // import NotFoundPage from './pages/pageClient/NotFoundPage/NotFound';
 import AllShopPage from './pages/pageClient/AllPostPage/AllPostPage';
 import MeProfilePage from './pages/pageClient/MeProfilePage/meProfilePage';
-import DetailPage from './pages/pageClient/DetailCartPage/DetailPage';
+import DetailPage from './components/componentsClient/Content/Cart/CartDetail';
 import About from './components/componentsClient/About/About';
 import BookingPage from './pages/pageClient/Booking/bookingPage';
 
@@ -54,8 +54,8 @@ export const routes =[
     },
     {
         path:'/all-shop',
-        exact:true,
-        main: () => <AllShopPage/>
+        exact:false,
+        main: ({match}) => <AllShopPage match={match} />
     },
     {
         path:'/detail-shop/:postId',

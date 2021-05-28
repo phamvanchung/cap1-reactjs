@@ -12,7 +12,7 @@
     
     header {
         z-index: 999;
-        /* position: fixed; */
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -698,9 +698,9 @@
 /* card */
 
 .card-wrapper{
-    margin-top:18px;
+    /* margin-top:18px; */
     /* height: 230px; */
-    border-radius: 3px;
+    /* border-radius: 3px; */
 }
 .card-list{
     display: flex;
