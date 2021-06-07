@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import {actFetchPostsReq} from '../../../../actions/actPosts';
 import { connect } from "react-redux";
-// import {POST_IMG} from "../../../../constants/service";
+import {POST_IMG} from "../../../../constants/service";
 import './CartItem.css';
 
 class CartItem extends Component {
@@ -20,7 +20,7 @@ class CartItem extends Component {
                         <div className="card-list">
                         <div className="card-item ">
                          <Link to={`/detail-shop/${post._id}`}>
-                            <img src={post.avatar} alt="avatar" className="card-item--img" />
+                            <img src={`${POST_IMG}/${post.avatar}`} alt="avatar" className="card-item--img" />
                         </Link>
                         </div>
                         <div className="card-list-wrap">
@@ -35,12 +35,12 @@ class CartItem extends Component {
                             <div className="card-item">
                             <div className="card-item-evaluate">
                                 <div className="card-item-evaluate-wrap">
-                                <div className="card-item-evaluate--label">Rất tốt</div>
-                                <div className="card-item-evaluate--text">100 đánh giá</div>
+                                <div className="card-item-evaluate--label">Very good</div>
+                                <div className="card-item-evaluate--text">100 reviews</div>
                                 </div>
                                 <div className="card-item-evaluate-pointer">8.0 </div>
                             </div>
-                            <Link to={`/detail-shop/${post._id}`} className="btn btn-info btn-card">Xem chi tiết</Link>
+                            <Link to={`/detail-shop/${post._id}`} className="btn btn-info btn-card">Details</Link>
                             </div>
                         </div>
                         </div>
@@ -50,20 +50,26 @@ class CartItem extends Component {
         }
         return result;
     }
-
+   
+  
     render() {
         const {posts} = this.props;
+         //search
+        // posts = posts.filter((post) => {
+        //     return post.address.toLowerCase().indexOf(keyword.toLowerCase())!== -1;
+        //  })
+        
         return (
             <div className='row'>
-            {this.showAllPost(posts)}
-
+                {this.showAllPost(posts)}
             </div>
         );
     }
 }
 const mapStateToProps = (state)=>{
     return {
-        posts:state.posts
+        posts:state.posts,
+        // keyword: state.search
     }
 }
 const mapDispatchToProps = (dispatch, props) =>{

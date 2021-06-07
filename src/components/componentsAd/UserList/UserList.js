@@ -17,7 +17,8 @@ class UserList extends Component {
                     <th scope="col">Email</th>
                     <th scope="col">Password</th>
                     <th scope="col" >UserName</th>
-                    <th scope="col" colSpan={2}>PhoneUser</th>
+                    <th scope="col">PhoneUser</th>
+                    <th scope="col" colSpan={2}>Role</th>
                     <th />
                     </tr>
                 </thead>

@@ -62,7 +62,6 @@ class Admin extends Component {
                 <Menu/>
                 <main>
                 <h1>Fix Fast Website Admin</h1>
-                {/* <a href="###" className="header-icon"></a> */}
                 <div className="header-icon">
                     {this.showUserIsLogin(userLogin)}
                 </div>
@@ -71,7 +70,7 @@ class Admin extends Component {
                 </div>
             </div>
         );
-    }
+        }
 }
 const mapStateToProps = (state)=>({
     userLogin:state.auth

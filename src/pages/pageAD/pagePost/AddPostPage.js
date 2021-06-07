@@ -93,7 +93,6 @@ class AddPostPage extends Component {
                     <label>Image</label><br />
                     <input type="file" className="form" 
                     name="avatar" 
-                    ref={this.fileInput}
                     onChange={this.handleOnchangeChooseFile}/>
                 </div>
                 <Link to="/admin/posts-list" className="btn btn-primary mr-2">
@@ -106,7 +105,7 @@ class AddPostPage extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch, props)=>{
+const mapDispatchToProps = (dispatch)=>{
     return{
         AddPosts:(post)=>{
             dispatch(actAddPostsReq(post))

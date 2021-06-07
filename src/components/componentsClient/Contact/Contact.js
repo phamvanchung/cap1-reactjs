@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Contact extends Component {
     render() {
         return (
-            <div>
+            <>
             {/*Contact section*/}
             <section className="contact" id="contact">
                 <div className="title reveal">
@@ -17,7 +17,7 @@ class Contact extends Component {
                     </div>
                     <div className="info">
                         <h3>Address</h3>
-                        <span>Address, City, Country</span>
+                        <span>Hà Huy Tập, ĐN, VN</span>
                     </div>
                     </div>
                     <div className="card reveal">
@@ -26,7 +26,7 @@ class Contact extends Component {
                     </div>
                     <div className="info">
                         <h3>Phone</h3>
-                        <span>+00 0000 000 000</span>
+                        <span>+1900 10001</span>
                     </div>
                     </div>
                     <div className="card reveal">
@@ -35,7 +35,7 @@ class Contact extends Component {
                     </div>
                     <div className="info">
                         <h3>Email Address</h3>
-                        <span>contact@email.com</span>
+                        <span>FFW@email.com</span>
                     </div>
                     </div>
                     <div className="card reveal">
@@ -44,13 +44,13 @@ class Contact extends Component {
                     </div>
                     <div className="info">
                         <h3>Website</h3>
-                        <span>mywebsite.com</span>
+                        <span>FFW.com</span>
                     </div>
                     </div>
                 </div>
                 </div>
             </section>
-            </div>
+            </>
         );
     }
 }

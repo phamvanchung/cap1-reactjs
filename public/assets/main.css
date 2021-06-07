@@ -763,9 +763,11 @@
 .card-item-evaluate{
     display: flex;
     padding-left: 15px;
+    align-items: center;
 }
 .card-item-evaluate-wrap{
     margin-right: 4px;
+    text-align: center;
 }
 .card-item-evaluate--label{
     color: var(--primary-color);
@@ -782,7 +784,7 @@
 }
 .card-item-evaluate-pointer{
     height:32px;
-    width: 32px;
+    width: 40px;
     color: #fff;
     font-size:13px;
     font-weight:700;

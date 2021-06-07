@@ -94,6 +94,19 @@ class AddUserPage extends Component {
                 />
             </div>
             <div className="form-group">
+                <label>Role</label>
+                <select
+                    className="form-control"
+                    name="permissions"
+                    onChange={this.handleOnchange}
+                    >
+                    <option>Permissions</option>
+                    <option value="customer">Customer</option>
+                    <option value="shop">Shop</option>
+                    {/* <option value="admin">Admin</option> */}
+                </select>
+            </div>
+            <div className="form-group">
                 <label>Avatar</label><br />
                 <input type="file" className="form" 
                 name="avatar" 

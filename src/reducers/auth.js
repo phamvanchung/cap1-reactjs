@@ -1,6 +1,7 @@
 import storage from 'redux-persist/lib/storage';
 import { persistReducer } from 'redux-persist';
 import * as TypesAuth from '../constants/authActionType';
+import Toastify from '../utils/toastify';
 
 const initialState = {
   isLogin: false,
@@ -18,8 +19,10 @@ const Auth = (state = initialState, action) => {
         state.isLogin = true;
         state.dataUser = action.dataUser;
       }
+      Toastify({ msg: 'Logged in successfully', type: 'success' });
       return { ...state };
     case TypesAuth.USER_REGISTER:
+      Toastify({ msg: 'Sign Up Success', type: 'success' });
       return { ...state };
     default: return { ...state };
   }

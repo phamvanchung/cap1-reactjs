@@ -10,6 +10,7 @@ class EditUserPage extends Component {
             email:'',
             password:'',
             phoneUser:'',
+            permissions:'',
             avatar:'',
         }
     }
@@ -30,6 +31,7 @@ class EditUserPage extends Component {
                 email:itemEditing.email,
                 password:itemEditing.password,
                 phoneUser:itemEditing.phoneUser,
+                permissions:itemEditing.permissions,
                 avatar:itemEditing.avatar,
             })
             } 
@@ -51,13 +53,14 @@ class EditUserPage extends Component {
         let { match } = this.props;
         let {history}= this.props;
         let {userId} = match.params;
-        let {userName,email,password,phoneUser} = this.state;
+        let {userName,email,password,phoneUser,permissions} = this.state;
         let user ={
             _id:userId,
             userName:userName,
             email:email,
             password:password,
-            phoneUser:phoneUser
+            phoneUser:phoneUser,
+            permissions:permissions,
         }
         const myPromiseUser = new Promise((myResolve, myReject) => {
             this.props.onUpdateUser(user);
@@ -74,7 +77,7 @@ class EditUserPage extends Component {
     }
 
     render() {
-        const {userName, password, email,phoneUser}=this.state;
+        const {userName, password, email,phoneUser,permissions}=this.state;
         return (
             <div className="mt-4">
             <h3>Users management</h3>
@@ -112,6 +115,20 @@ class EditUserPage extends Component {
                 name="phoneUser" value={phoneUser|| ''}
                 onChange={this.handleOnchange}
                 />
+            </div>
+            <div className="form-group">
+                <label>Role</label>
+                <select
+                className="form-control"
+                name="permissions"
+                value={permissions ||''}
+                onChange={this.handleOnchange}
+                >
+                <option>Permissions</option>
+                <option value="customer">Customer</option>
+                <option value="shop">Shop</option>
+                <option value="admin">Admin</option>
+                </select>
             </div>
             <div className="form-group">
                 <label>Avatar</label><br />

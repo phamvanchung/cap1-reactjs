@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './HomePage.css';
-
+import HighCharts from '../Highcharts/HighCharts';
 export default class HomePageAd extends Component {
     render() {
         return (
+            <>
             <div className="homepage-body">
                  {/*Widget Start*/}
                 <div className="card-body color1">
@@ -36,7 +37,7 @@ export default class HomePageAd extends Component {
                 <div className="card-body color3">
                 <div className="float-left">
                     <h3>
-                    <span className="count">50</span>
+                    <span className="count">20</span>
                     </h3>
                     <p>Shop</p>
                 </div>
@@ -46,6 +47,8 @@ export default class HomePageAd extends Component {
                 </div>
                 {/*Widget End*/}
             </div>
+            <HighCharts/>
+            </>
         )
     }
 }

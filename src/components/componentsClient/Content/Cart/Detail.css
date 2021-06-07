@@ -126,7 +126,9 @@
 
 .context {
     margin: 10px 0px 15px 15px;
-    line-height: 1.6;
+    line-height: 2;
+    display: flex;
+    text-align: justify;
 }
 .vehicle_label {
     font-size: 20px;

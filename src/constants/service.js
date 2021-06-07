@@ -1,3 +1,2 @@
-export const DOMAIN = 'http://localhost:8080';
-export const POST_IMG = `${DOMAIN}/api/photo`;
-export const USER_IMG = `${DOMAIN}/api/photo`;
+export const POST_IMG = 'http://localhost:8080/api/storages/posts';
+export const USER_IMG = 'http://localhost:8080/api/storages/users';

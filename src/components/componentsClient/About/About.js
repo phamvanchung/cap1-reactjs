@@ -7,8 +7,8 @@ class About extends Component {
     }
     render() {
         return (
-            <div>
-                <div className="content">
+            <>
+                <div className="content-about">
                 <div className="introduce">
                 <div className="content_intro">
                     <h5>Fix Fast Website</h5>
@@ -80,7 +80,7 @@ class About extends Component {
                 </div>
                 </div>
             </div>
-            </div>
+            </>
         );
     }
 }

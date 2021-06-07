@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import './slides.scss';
-
+import './slides.css';
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay  } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.scss';
@@ -13,7 +12,7 @@ SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay ]);
 class Slides extends Component {
     render() {
         return (
-            <div>
+            <>
                 <div className="section">
                     <h1>FIX FAST WEBSITE</h1>
                     <div className="video-container">
@@ -47,7 +46,7 @@ class Slides extends Component {
                             </SwiperSlide>
                         </Swiper>
                     </div>
-                </div>
+                </>
         );
     }
 }

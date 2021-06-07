@@ -53,7 +53,7 @@ class AddShopPage extends Component {
         return (
             <div className="mt-4">
             <h3>Shops management</h3>
-            <form method="POST"  onSubmit={this.handleOnSubmit} encType="multipart/form-data" >
+            <form method="POST" onSubmit={this.handleOnSubmit} encType="multipart/form-data" >
             <div className="form-group">
                 <label>Name Shop</label>
                 <input type="text" 
@@ -98,7 +98,7 @@ class AddShopPage extends Component {
                 // required
                 />
             </div>
-            <Link to="/admin/users-list" className="btn btn-primary mr-2">
+            <Link to="/admin/shops-list" className="btn btn-primary mr-2">
                 Cancel
             </Link>
             <button type="submit" className="btn btn-primary" >Save</button>
@@ -108,7 +108,7 @@ class AddShopPage extends Component {
     }
 }
 
-const mapDispatchToProps = (dispatch, props)=>{
+const mapDispatchToProps = (dispatch)=>{
     return{
         AddShop:(shop)=>{
             dispatch(actAddShopsReq(shop))

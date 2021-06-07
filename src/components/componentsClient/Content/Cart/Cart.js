@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 class Cart extends Component {
     render() {
         return (
-            <div>
+            <>
             {/*image card layout start*/}
             <section className="contact" id="services">
                 <div className="title reveal">
@@ -76,7 +76,7 @@ class Cart extends Component {
                 </div>
             </section>
             {/*image card layout end*/}
-            </div>
+            </>
         );
     }
 }

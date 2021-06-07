@@ -2,13 +2,18 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom";
 import { connect } from 'react-redux';
 import './Header.css';
+import {USER_IMG} from '../../../constants/service';
 import { HashLink as Links } from 'react-router-hash-link';
 
 class Header extends Component {
-
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
+    
     handleLogout = () => {
         localStorage.clear();
         window.location.reload();
+        // this.props.history.push('/')
       }
     
     showUserIsLogin = (userLogin) => {
@@ -24,12 +29,13 @@ class Header extends Component {
                 <ul className="nav navbar-right navbar-top-links">
                     <li className="dropdown">
                     <a className="dropdown-toggle" data-toggle="dropdown" href="###">
-                        <i className="fa fa-user fa-fw dropdown-icon" /> {userLogin.dataUser.user.userName} <b className="caret" />
+                        <img src={`${USER_IMG}/${userLogin.dataUser.user.avatar}`} alt='' className="header__navbar-user-img"></img>
+                         {userLogin.dataUser.user.userName} <b className="caret" />
                     </a>
                     <ul className="dropdown-menu dropdown-user">
-                        <li><a className="dropdown-user-link" href="###"><i className="fa fa-user fa-fw dropdown-icon" /> User Profile</a>
+                        <li><Link to='/me/profile' className="dropdown-user-link"><i className="fa fa-user fa-fw dropdown-icon" /> User Profile</Link>
                         </li>
-                        <li><a className="dropdown-user-link border-bt" href="###"><i className="fa fa-gear fa-fw dropdown-icon" /> Settings</a>
+                        <li><Link to='/me/post' className="dropdown-user-link border-bt"><i className="fas fa-clipboard fa-fw dropdown-icon" /> Posts Me</Link>
                         </li>
                         <li className="divider" />
                         <li><Link to='/' onClick={this.handleLogout} className="dropdown-user-link"><i className="fa fa-sign-out fa-fw dropdown-icon" /> Logout</Link>

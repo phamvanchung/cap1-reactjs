@@ -3,6 +3,7 @@ import Search from '../Search/Search';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {actGetPostByIdReq} from '../../../../actions/actPosts';
+import {POST_IMG} from '../../../../constants/service';
 
 import './Detail.css';
 class CartDetail extends Component {
@@ -10,37 +11,36 @@ class CartDetail extends Component {
     componentDidMount() {
         window.scrollTo(0, 0);
         let { match } = this.props;
-        console.log('match:',match);
         if(match){
             let {postId} = match.params;
             this.props.getPostById(postId);
         }
     }
-    
 
     showDetailPost = (post) => {
+        // var img = ( );
         if(post){
             return(
-                <div>
+                <>
                     <div className="information_shop">
                     <div className="info_name_icon">
                         <h1 className="infor_shopName">{post.name}</h1>
                     </div>
                     <div className="form_dn">
-                        <Link to="/my-order"  className="btn btn-info button">Đặt Ngay</Link>
+                        <Link to={`/my-order/${post._id}/booking`}  className="btn btn-info button">Book Now</Link>
                     </div>
                     </div>
                     <div className="infor_image-wrapper">
-                        <img className="infor_image_1" src={post.avatar} alt="img" />
+                        <img src={`${POST_IMG}/${post.avatar}`} className="infor_image_1" alt="img" />
                     </div>
                     <div className="infor_content">
-                        <h2 className="top_pick_heading">Mô tả cửa hàng</h2>
+                        <h2 className="top_pick_heading">Store Description</h2>
                         <p className="context">
                             {post.description}
                         </p>
                         <p className="top_pick_heading">Hotline: {post.phone}</p>
                     </div>
-                </div>
+                </>
             )
         }
     }
@@ -74,7 +74,7 @@ class CartDetail extends Component {
                     </div>
                     <div className="evaluate_list">
                     <div className="evaluate_column">
-                    <p className="evaluate_category">Đánh giá của khách</p>
+                    <p className="evaluate_category">Guest reviews</p>
                         <div className="bar">
                         <div className="info">
                             <span>Nhân viên phục vụ</span>
@@ -113,7 +113,7 @@ class CartDetail extends Component {
                     </div>
                     </div>
                     <div className="evaluate_comment">
-                    <p className="evaluate_label">Đọc xem khách yêu thích điều gì nhất:</p>
+                    <p className="evaluate_label">Guest opinion:</p>
                     <div className="user_comment">
                         <ul className="user_comment_list">
                         <li className="user_comment_item">
@@ -174,8 +174,7 @@ class CartDetail extends Component {
 
 const mapStateToProps=(state)=>{
     return{
-    posts: state.posts,
-    // login: state.auth
+    posts: state.itemEditing,
 }}
 const mapDispatchToProps = (dispatch) =>({
     getPostById: (postId)=>{

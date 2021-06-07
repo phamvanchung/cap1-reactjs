@@ -9,7 +9,7 @@ export const actFetchPosts = (posts)=>{
 }
 export const actFetchPostsReq  =  () => {
     return  (dispatch) => {
-        return callApi('api/posts','GET',null)
+        return callApi('api/posts/get-all-post','GET',null)
         .then((res) =>{
             dispatch(actFetchPosts(res.data))
         })
@@ -26,6 +26,9 @@ export const actGetPostByIdReq = (postId) => {
        return callApi(`api/posts/get-postId/${postId}`, 'GET', null)
     .then((res) => {
         dispatch(actGetPostById(res.data));
+        })
+    .catch((err) => {
+        throw err;
         })
     }
 }
@@ -76,19 +79,3 @@ export const actUpdatePostsReq = (post) =>{
         })
     }
 }
-
-
-// export const actGetPosts =  (post) => {
-//     return {
-//         type:Types.EDIT_POSTS,
-//         post
-//     }
-// }
-// export const actGetPostsReq = (postId)=>{
-//     return (dispatch) =>{
-//         return callApi(`api/posts/${postId}`,'GET',null)
-//         .then(res =>{
-//             dispatch(actGetPosts(res.data));
-//         })
-//     }
-// }

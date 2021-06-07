@@ -1,0 +1,9 @@
+.charts{
+    height:300px;
+    width: 650px;
+    display: flex;
+    margin-top: 50px;
+}
+.chart2{
+    margin-left: 20%;
+}

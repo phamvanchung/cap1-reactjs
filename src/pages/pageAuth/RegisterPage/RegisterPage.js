@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import {actRegisterReq} from '../../../actions/actAuth';
-
 import './Register.css';
 
 import { toast } from 'react-toastify';
@@ -75,9 +74,6 @@ class RegisterPage extends Component {
                     required
                     onChange={this.handleOnChange}
                     />
-                    {submitted && !userName &&
-                            <div className="help-block">Username is required</div>
-                        }
                 </div>
                 <div className={'form-group' + (submitted && !email ? ' has-error' : '')}>
                     <label htmlFor="login-input-email" className="login__label">
@@ -90,9 +86,7 @@ class RegisterPage extends Component {
                     required
                     onChange={this.handleOnChange}
                     />
-                    {submitted && !email &&
-                        <div className="help-block">Email is required</div>
-                    }
+                  
                 </div>
                 <div className={'form-group' + (submitted && !password ? ' has-error' : '')}>
                     <label htmlFor="login-input-password" className="login__label">
@@ -104,9 +98,6 @@ class RegisterPage extends Component {
                     value={password} required
                     onChange={this.handleOnChange}
                     />
-                    {submitted && !password &&
-                     <div className="help-block">Password is required</div>
-                    }
                 </div>
                 <div className={'form-group' + (submitted && !phoneUser ? ' has-error' : '')}>
                     <label htmlFor="login-input-phone" className="login__label">
@@ -118,9 +109,6 @@ class RegisterPage extends Component {
                     value={phoneUser} required
                     onChange={this.handleOnChange}
                     />
-                {submitted && !phoneUser &&
-                    <div className="help-block">Phone is required</div>
-                }
                 </div>
                 <div className="form-group">
                     <label className="login__label">Role</label>
@@ -132,7 +120,7 @@ class RegisterPage extends Component {
                     <option>Permissions</option>
                     <option value="customer">Customer</option>
                     <option value="shop">Shop</option>
-                    <option value="admin">Admin</option>
+                    {/* <option value="admin">Admin</option> */}
                     </select>
                 </div>
                     <label htmlFor="login-input-avatar" className="login__label">Avatar</label>
@@ -147,7 +135,7 @@ class RegisterPage extends Component {
                     you agree to the Terms of Service & Privacy Policy */}
                 </label>
                 <div className="form-group">
-                    <button className="login__submit">Register</button>
+                    <button className="login__submit" >Register</button>
                 </div>
                 </form>
             </div>
@@ -155,9 +143,6 @@ class RegisterPage extends Component {
         );
     }
 }
-// const mapStateToProps =(state)=>({
-//     registering:state.auth,
-// })
 const mapDispatchToProps = (dispatch, props) =>({
     onRegisterUser: (userData) =>{
         dispatch(actRegisterReq(userData))

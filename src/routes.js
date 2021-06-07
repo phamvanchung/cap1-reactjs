@@ -19,7 +19,9 @@ import AllShopPage from './pages/pageClient/AllPostPage/AllPostPage';
 import MeProfilePage from './pages/pageClient/MeProfilePage/meProfilePage';
 import DetailPage from './components/componentsClient/Content/Cart/CartDetail';
 import About from './components/componentsClient/About/About';
-import BookingPage from './pages/pageClient/Booking/bookingPage';
+import BookingPage from './pages/pageClient/Booking/BookingPage';
+import MePostPage from './pages/pageClient/MePostPage/MePostPage';
+import AddPostMePage from './pages/pageClient/MePostPage/AddPostMePage';
 
 //import Auth
 import LoginPage from './pages/pageAuth/LoginPage/LoginPage';
@@ -68,9 +70,19 @@ export const routes =[
         main: () => <MeProfilePage/>
     },
     {
-        path: '/my-order',
-        exact:true,
-        main: () => <BookingPage/>
+        path: '/me/post',
+        exact:false,
+        main: () => <MePostPage/>
+    },
+    {
+        path: '/me/add-post',
+        exact:false,
+        main: ({match,history}) => <AddPostMePage match={match} history={history}/>
+    },
+    {
+        path: '/my-order/:posId/booking',
+        exact:false,
+        main: ({match,history}) => <BookingPage match={match} history={history}/>
     },
     // {
     //     path:'*',

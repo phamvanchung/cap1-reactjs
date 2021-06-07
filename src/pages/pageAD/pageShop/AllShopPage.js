@@ -16,15 +16,15 @@ class AllShopPage extends Component {
                         key={index}
                         shop={shop}
                         index={index}
-                        onDeleteShop={this.onDeleteShop}
+                        onDelete={this.onDelete}
                     />
                 )
             })
         }
         return result;
     }
-    onDeleteShop = (shopId) => {
-        this.props.onDelete(shopId)
+    onDelete = (shopId) => {
+        this.props.onDeleteShop(shopId)
     }
     componentDidMount = () => {
         this.props.fetchAllShop()
@@ -43,12 +43,12 @@ class AllShopPage extends Component {
 const mapStateToProps = (state)=>({
     shops : state.shops
 })
-const mapDispatchToProps = (dispatch, props)=>{
+const mapDispatchToProps = (dispatch)=>{
     return{
         fetchAllShop: (shop)=>{
             dispatch(actFetchAllShopReq(shop))
         },
-        onDelete: (shopId)=>{
+        onDeleteShop: (shopId)=>{
             dispatch(actDeleteShopsReq(shopId))
         }
     }

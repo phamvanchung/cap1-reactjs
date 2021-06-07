@@ -42,7 +42,6 @@ export const actAddShopsReq = (shop)=>{
         return callApi('api/shops/add-shop','POST',shop)
         .then(res =>{
             dispatch(actAddShops(res.data))
-            console.log('rres:',res);
         })
     }
 }

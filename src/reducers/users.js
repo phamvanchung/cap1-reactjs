@@ -1,4 +1,5 @@
 import * as TypesUser from "../constants/userActionType";
+import Toastify from '../utils/toastify';
 
 var initialState = [];
 
@@ -25,10 +26,12 @@ const users = (state= initialState, action) => {
             return [...state]
         case TypesUser.ADD_USERS:
             state.push(action.user);
+            Toastify({ msg: 'Create user successfully', type: 'info' });
             return [...state];
         case TypesUser.UPDATE_USERS:
             index = findIndex(state,user.userId);
             state[index] = action.user;
+            Toastify({ msg: 'Update user successfully', type: 'info' });
             return [...state];
             
         default: return[...state]

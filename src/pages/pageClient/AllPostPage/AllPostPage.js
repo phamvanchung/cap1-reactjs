@@ -7,9 +7,9 @@ class AllShopPage extends Component {
     }
     render() {
         return (
-            <div>
-                <AllPostList/>
-            </div>
+            <>
+                <AllPostList match={this.props.match}/>
+            </>
         );
     }
 }

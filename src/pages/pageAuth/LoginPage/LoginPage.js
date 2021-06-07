@@ -25,9 +25,9 @@ class LoginPage extends Component {
         }
       }
     
-      static getDerivedStateFromProps(nextprops, preState) { // neu nexprops(du lieu thay doi) thay doi hoac render se goi ham preState la props cu
-        if (nextprops.login !== preState.login) {
-          return { login: nextprops.login };
+      static getDerivedStateFromProps(nextProps, preState) { // neu nexprops(du lieu thay doi) thay doi hoac render se goi ham preState la props cu
+        if (nextProps.login !== preState.login) {
+          return { login: nextProps.login };
         } return null;
       }
 
